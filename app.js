@@ -5,7 +5,7 @@
 const SERVER = {
   name: "Black",
   wordmark: ["BLA", "CK"],        // 첫 화면 큰 글자 (앞은 검은 흙색, 뒤는 금색)
-  motto: "마인크래프트 서버 Black에 오신 것을 환영합니다.",
+  motto: "검은 흙이 가장 비옥하다",
   ip: "blackheim.kro.kr",
   version: "Java 1.21.1",
   discord: "https://discord.gg/j4AbNA6TT",  // 예: "https://discord.gg/xxxx" (비워두면 버튼 숨김)
