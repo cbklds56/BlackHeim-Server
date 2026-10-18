@@ -179,7 +179,7 @@
   <section id="mine" class="section dark">
     <div class="wrap">
       <h2 class="title"><span>광산</span></h2>
-      <p class="lead"><code>/광산</code> 으로 이동. <b>Black 곡괭이로만</b> 캘 수 있어요. 캔 광물은 인벤토리로 바로 들어오고, 잠시 뒤 다시 생겨요. 가끔 <b>광산 강화석</b>도!</p>
+      <p class="lead"><code>/광산</code> 으로 이동. <b>Black 곡괭이로만</b> 캘 수 있어요. 캔 광물은 인벤토리로 바로 들어오고, 잠시 뒤 다시 생겨요. 캔 광물 가치만큼 <b>광산 강화석</b>도!</p>
       <div class="table-wrap">
         <table class="data" id="ore-table">
           <thead><tr><th>광물</th><th>해금</th><th>드롭</th><th>리젠</th><th>가격</th></tr></thead>
@@ -256,18 +256,21 @@
               <tbody></tbody>
             </table>
           </div>
-          <p class="muted"><b>등급마다 강화 한도</b>가 있어요 — 1등급 +2, 그 뒤 2등급마다 +1 (16등급부터 +10). +5 가 되면 곡괭이·도끼·삽이 <b>네더라이트</b>로 바뀌어요. 최종 효율 10 · 행운 7. 괭이는 행운이 수확에 적용돼요.</p>
+          <p class="muted"><b>등급마다 강화 한도</b>가 있어요 — 1등급 +2, 그 뒤 2등급마다 +1 (16등급부터 +10). <b>강화할 때마다 모습이 바뀌어요</b> — 나무 → 돌 → 구리 → 철 → 금 → 이리듐 → 다이아 → 옥 → 루비 → 네더라이트 → <b>+10 전설</b> (모든 Black 도구 · 낚싯대 똑같이). 괭이는 행운이 수확에 적용돼요.</p>
       </article>
       <div class="cols">
         <article class="panel">
           <h3>강화석</h3>
           <div class="stones" id="stone-list"></div>
-          <ul class="list">
-            <li><b>괭이 강화석</b> — 농사(수확)하다 8%</li>
-            <li><b>광산 강화석</b> — 광물 캐다 8% (곡괭이·도끼·삽)</li>
-            <li><b>낚시 강화석</b> — 물고기 낚으면 15% (완벽 30%)</li>
+          <p>번 것의 <b>가치만큼</b> 나와요 — <b>2만원어치마다 평균 1개</b>라서 농사·광산·낚시·도축 어느 걸 해도 같은 속도예요.</p>
+          <ul>
+            <li><b>농사 강화석</b> — 수확할 때 (Black 괭이)</li>
+            <li><b>광산 강화석</b> — 광물 캘 때 (Black 곡괭이)</li>
+            <li><b>낚시 강화석</b> — 물고기 낚을 때, 완벽하면 2배 (낚싯대)</li>
+            <li><b>도축 강화석</b> — 도축장에서 고기 얻을 때 (Black 칼)</li>
           </ul>
-          <p class="muted">강화할 때 돈 + 그 도구의 강화석이 들어요. 실패해도 써요. <code>/잠수상점</code> 에서도 살 수 있어요.</p>
+          <p class="muted"><b>Black 도끼 · 삽</b>은 아무 강화석이나 섞어서 써도 돼요. 강화할 때 돈 + 강화석이 들고, 실패해도 써요. <code>/잠수상점</code> 에서도 살 수 있어요.</p>
+          <p><b>강화 효과는 모든 도구가 똑같아요</b> — 1단계마다 <b>5% 확률로 2배</b> (+10 이면 평균 +50%): 곡괭이 광물 · 괭이 작물 · 낚싯대 물고기 · 칼 고기.</p>
         </article>
         <article class="panel">
           <h3>방지권</h3>

@@ -234,7 +234,7 @@ function renderFish() {
       <div class="meta">${f.min}~${f.max}cm · ${wk[f.weather] ?? f.weather} · 난이도 ${"●".repeat(Math.max(1, Math.round(f.diff / 25)))}</div>
     </article>`).join("");
   $("#rod-strip").innerHTML = D.tools.rods.map((r, i) =>
-    `<figure><img src="${r.img}" alt=""><figcaption>+${i * 2}${i < 5 ? "~" + (i * 2 + 1) : ""}<br><small>${esc(r.name.replace("Black ", ""))}</small></figcaption></figure>`).join("");
+    `<figure><img src="${r.img}" alt=""><figcaption>+${i}<br><small>${esc(D.tools.tierNames[i])}</small></figcaption></figure>`).join("");
 }
 
 /* ---------- 가공 ---------- */
@@ -258,16 +258,17 @@ function renderArtisan() {
 
 /* ---------- 강화 ---------- */
 function renderEnh() {
-  const T = D.tools, nm = { black_pickaxe: "곡괭이", black_axe: "도끼", black_shovel: "삽" };
-  $("#tool-show").innerHTML = T.black.map(t => `
-    <figure><div class="pair"><img src="${t.img}" alt=""><span>→</span><img src="${t.nimg}" alt=""></div>
-    <figcaption>Black ${nm[t.id]}<br><small>다이아 → +5 네더라이트</small></figcaption></figure>`).join("")
-    + `<figure><div class="pair"><img src="${T.rods[0].img}" alt=""><span>→</span><img src="${T.rods[5].img}" alt=""></div><figcaption>Black 낚싯대<br><small>+0 → +10 전설</small></figcaption></figure>`;
+  const T = D.tools, nm = { black_pickaxe: "곡괭이", black_axe: "도끼", black_shovel: "삽", black_hoe: "괭이", black_sword: "칼" };
+  // 강화할 때마다 모습이 바뀜 : 도구마다 +0 ~ +10 한 줄
+  $("#tool-show").innerHTML = `<div class="tier-grid">`
+    + `<div class="tier-row head"><span></span>${T.tierNames.map((n, i) => `<small>+${i}<br>${esc(n)}</small>`).join("")}</div>`
+    + T.black.map(t => `<div class="tier-row"><b>${nm[t.id]}</b>${t.tiers.map(s => `<img src="${s}" alt="">`).join("")}</div>`).join("")
+    + `<div class="tier-row"><b>낚싯대</b>${T.rods.map(r => `<img src="${r.img}" alt="">`).join("")}</div></div>`;
   $("#enh-table tbody").innerHTML = D.enh.map(e => `
     <tr class="${e.destroy ? "deep" : ""}"><td><b>+${e.lv}</b></td><td>${e.rank}등급</td><td>${e.rate}%</td><td>${won(e.price)}</td><td>${e.stones}개</td>
     <td>${e.destroy ? `<span class="tag-deep">파괴 ${e.destroy}%</span> 아니면 ` : ""}${e.down ? "50% 하락" : "유지"}</td>
     <td>${e.eff} · ${e.fort}</td></tr>`).join("");
-  const sn = { farm: "괭이 강화석", mine: "광산 강화석", fish: "낚시 강화석" };
+  const sn = { farm: "농사 강화석", mine: "광산 강화석", fish: "낚시 강화석", butcher: "도축 강화석" };
   $("#stone-list").innerHTML = T.stones.map(st => `<span class="ing"><img src="${st.img}" alt="">${sn[st.id]}</span>`).join("");
   $("#protect-list").innerHTML = `<span class="ing"><img src="${T.protect[0]}" alt="">파괴 방지권</span><span class="ing"><img src="${T.protect[1]}" alt="">하락 방지권</span>`;
 }

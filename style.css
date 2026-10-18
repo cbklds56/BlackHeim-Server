@@ -518,3 +518,10 @@ td.name img { width: 22px; height: 22px; vertical-align: -6px; margin-right: 6px
 .farm-preview{margin:18px auto;max-width:560px;text-align:center}
 .farm-preview img{width:100%;height:auto;border-radius:12px;image-rendering:auto}
 .farm-preview figcaption{font-size:.9em;opacity:.75;margin-top:6px}
+
+/* 강화 모습 표 (도구마다 +0 ~ +10) */
+.tier-grid{display:grid;gap:4px;width:100%}
+.tier-row{display:grid;grid-template-columns:3.2em repeat(11,1fr);align-items:center;gap:2px}
+.tier-row img{width:100%;max-width:36px;image-rendering:pixelated;justify-self:center}
+.tier-row.head small{font-size:.62em;text-align:center;opacity:.8;line-height:1.2}
+.tier-row b{font-size:.85em}
