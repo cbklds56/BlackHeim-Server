@@ -97,6 +97,7 @@ function renderCrops() {
           <h4>${esc(c.name)}</h4>
           <div class="badges">
             <span class="badge lv">Lv.${c.lvl}</span>
+            <span class="badge${c.days > 8 ? ' long' : ''}">${growText(c.days)}</span>
           </div>
         </div>
       </div>
@@ -110,6 +111,13 @@ function renderCrops() {
       <div class="meta">수확 ${c.min === c.max ? c.min : c.min + "~" + c.max}개${c.regrow ? ' · <b style="color:#3fa8d8">재성장</b> (한 번 심으면 계속 열려요)' : ''}</div>
     </article>`).join("");
 }
+// 성장 시간 : 1포인트 ≈ 2.3분
+function growText(pts) {
+  const m = Math.round(pts * 2.3);
+  if (m < 50) return `약 ${m}분`;
+  const h = Math.round(m / 30) / 2;
+  return `약 ${h}시간`;
+}
 function renderQuality() {
   const c = cropById.strawberry;
   $("#quality-demo").innerHTML = [["기본", c.img], ["★ 은", c.q[0]], ["★★ 금", c.q[1]], ["★★★ 이리듐", c.q[2]]]
@@ -117,15 +125,16 @@ function renderQuality() {
 }
 function renderXpChart() {
   const svg = $("#xp-chart"), W = 600, H = 180, P = { l: 52, r: 12, t: 12, b: 26 };
-  const need = lv => Math.floor(100 * Math.pow(lv, 1.6));
+  const need = lv => Math.floor(100 * Math.pow(lv, 2.3));
   const max = need(49);
   const x = lv => P.l + (lv - 1) / 48 * (W - P.l - P.r);
   const y = v => H - P.b - v / max * (H - P.t - P.b);
   let pts = [];
   for (let lv = 1; lv <= 49; lv++) pts.push(`${x(lv).toFixed(1)},${y(need(lv)).toFixed(1)}`);
-  const ticks = [0, 10000, 20000, 30000, 40000, 50000];
+  const step = Math.pow(10, Math.floor(Math.log10(max / 4))) * (max / Math.pow(10, Math.floor(Math.log10(max / 4))) > 20 ? 2 : 1);
+  const ticks = []; for (let t = 0; t <= max; t += step) ticks.push(t);
   svg.innerHTML = `
-    ${ticks.map(t => `<line class="axis" x1="${P.l}" x2="${W - P.r}" y1="${y(t)}" y2="${y(t)}"/><text x="${P.l - 6}" y="${y(t) + 4}" text-anchor="end">${t / 1000}k</text>`).join("")}
+    ${ticks.map(t => `<line class="axis" x1="${P.l}" x2="${W - P.r}" y1="${y(t)}" y2="${y(t)}"/><text x="${P.l - 6}" y="${y(t) + 4}" text-anchor="end">${t >= 10000 ? (t / 10000) + "만" : t}</text>`).join("")}
     <polygon class="area" points="${P.l},${H - P.b} ${pts.join(" ")} ${x(49)},${H - P.b}"/>
     <polyline class="lineplot" points="${pts.join(" ")}"/>
     ${[1, 10, 20, 30, 40, 49].map(lv => `<circle class="dot" cx="${x(lv)}" cy="${y(need(lv))}" r="3.5"><title>Lv.${lv} → ${need(lv).toLocaleString()}</title></circle><text x="${x(lv)}" y="${H - 8}" text-anchor="middle">Lv.${lv}</text>`).join("")}`;
@@ -176,7 +185,7 @@ function renderFoods() {
 }
 function renderIngredients() {
   $("#ing-grid").innerHTML = D.ingredients.map(i => `
-    <div class="ing-item"><img src="${i.img}" alt=""><div>${esc(i.name)}<small>${won(i.price)}</small></div></div>`).join("");
+    <div class="ing-item"><img src="${i.img}" alt=""><div>${esc(i.name)}<small>가치 ${won(i.price)}</small></div></div>`).join("");
 }
 
 /* ---------- 광산 ---------- */
@@ -197,7 +206,7 @@ function renderOres() {
       <td class="name"><img src="${m.img}" alt="">${blockName(o.block)} ${o.deep ? '<span class="tag-deep">보물</span>' : ""}</td>
       <td>광부 Lv.${o.lvl}</td>
       <td>${esc(m.name)} ${o.amin === o.amax ? o.amin : o.amin + "~" + o.amax}개</td>
-      <td>${o.regen}초</td>
+      <td>${o.xp}</td>
       <td>${won(m.value)}</td></tr>`;
   }).join("");
   const total = D.treasures.reduce((s, t) => s + t.w, 0);
@@ -245,14 +254,19 @@ function renderArtisan() {
     ["술통", "채소", "art_juice", "주스", "1개 10~60초", "작물 값 ×1.5"],
     ["절임병", "과일", "art_jam", "잼", "1개 10~60초", "작물 값 ×1.7"],
     ["절임병", "채소", "art_pickles", "피클", "1개 10~60초", "작물 값 ×1.6"],
+    ["술통", "벼", "ing:vinegar", "식초 ×2 (요리 재료)", "1개 10~60초", "—"],
     ["목장 가공기", "고기", "art_smoked", "훈제 고기", "1개 10~60초", "고기 값 ×1.4"],
-    ["목장 가공기", "우유", null, "치즈 (요리 재료)", "1개 10~60초", "우유 값 ×1.5"],
+    ["목장 가공기", "우유", "ing:cheese", "치즈 (요리 재료)", "1개 10~60초", "—"],
+    ["목장 가공기", "우유", "ing:butter", "버터 (요리 재료)", "1개 10~60초", "—"],
     ["목장 가공기", "달걀", "art_mayo", "마요네즈", "1개 10~60초", "달걀 값 ×1.6"],
+    ["제분기", "밀", "ing:flour", "밀가루 (요리 재료)", "1개 10~60초", "—"],
+    ["제분기", "비트", "ing:sugar", "설탕 ×2 (요리 재료)", "1개 10~60초", "—"],
+    ["제분기", "옥수수 · 해바라기", "ing:oil", "식용유 (해바라기 ×3)", "1개 10~60초", "—"],
   ];
-  const ing = D.ingredients.find(i => i.id === "cheese");
+  const ingImg = id => (D.ingredients.find(i => i.id === id) || {}).img;
   $("#artisan-table").innerHTML = rows.map(([m, inp, id, out, t, v]) => `
     <tr><td><b>${m}</b></td><td>${inp}</td>
-    <td class="name"><img src="${id ? A[id].img : ing.img}" alt="">${out}</td><td>${t}</td><td>${v}</td></tr>`).join("");
+    <td class="name"><img src="${id.startsWith("ing:") ? ingImg(id.slice(4)) : A[id].img}" alt="">${out}</td><td>${t}</td><td>${v}</td></tr>`).join("");
   $("#art-row").innerHTML = D.artisan.map(a => `<figure><img src="${a.img}" alt=""><figcaption>${esc(a.name)}</figcaption></figure>`).join("");
 }
 

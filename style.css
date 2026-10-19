@@ -526,3 +526,5 @@ td.name img { width: 22px; height: 22px; vertical-align: -6px; margin-right: 6px
 .tier-row img{width:100%;max-width:36px;image-rendering:pixelated;justify-self:center}
 .tier-row.head small{font-size:.62em;text-align:center;opacity:.8;line-height:1.2}
 .tier-row b{font-size:.85em}
+
+.badge.long { background: #3b2f5c; color: #d8c4ff; }
