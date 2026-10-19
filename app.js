@@ -151,7 +151,7 @@ function renderFoods() {
   const meats = ["beef", "pork", "chicken", "mutton"];
   const drinks = ["커피", "에일", "맥주", "주스", "버블티", "셔벗", "파르페"];
   const list = D.foods.filter(f => {
-    if (f.lvl > lv) return false;
+    if (f.clvl > lv) return false;
     if (foodFilter === "crop" && !f.ings.every(s => s.startsWith("crop:"))) return false;
     if (foodFilter === "fish" && !f.ings.some(s => s.startsWith("fish:"))) return false;
     if (foodFilter === "meat" && !f.ings.some(s => meats.includes(s.split(":")[1]))) return false;
@@ -161,13 +161,13 @@ function renderFoods() {
       if (!names.includes(q)) return false;
     }
     return true;
-  }).sort((a, b) => a.lvl - b.lvl || a.value - b.value);
+  }).sort((a, b) => a.clvl - b.clvl || a.value - b.value);
   $("#food-grid").innerHTML = list.length ? list.map(f => `
     <article class="card">
       <span class="value">${won(f.value)}</span>
       <div class="card-head">
         <img class="icon" src="${f.img}" alt="">
-        <div><h4>${esc(f.name)}</h4><div class="badges"><span class="badge lv">농사 Lv.${f.lvl}</span></div></div>
+        <div><h4>${esc(f.name)}</h4><div class="badges"><span class="badge lv">요리 Lv.${f.clvl}</span><span class="badge">1개 ${f.sec}초</span></div></div>
       </div>
       <div class="ings">
         ${f.ings.map(s => { const i = ingInfo(s); return `<span class="ing${i.fish ? " fish" : ""}">${i.img ? `<img src="${i.img}" alt="">` : ""}${esc(i.name)} ×${i.n}</span>`; }).join("")}
@@ -241,13 +241,13 @@ function renderFish() {
 function renderArtisan() {
   const A = Object.fromEntries(D.artisan.map(a => [a.id, a]));
   const rows = [
-    ["술통", "과일", "art_wine", "와인", "30분", "작물 값 ×3"],
-    ["술통", "채소", "art_juice", "주스", "10분", "작물 값 ×2.25"],
-    ["절임병", "과일", "art_jam", "잼", "10분", "작물 값 ×2"],
-    ["절임병", "채소", "art_pickles", "피클", "10분", "작물 값 ×2"],
-    ["목장 가공기", "고기", "art_smoked", "훈제 고기", "10분", "고기 값 ×1.5"],
-    ["목장 가공기", "우유", null, "치즈 (요리 재료)", "5분", "—"],
-    ["목장 가공기", "달걀", "art_mayo", "마요네즈", "3분", "달걀 값 ×3"],
+    ["술통", "과일", "art_wine", "와인", "1개 10~60초", "작물 값 ×2"],
+    ["술통", "채소", "art_juice", "주스", "1개 10~60초", "작물 값 ×1.5"],
+    ["절임병", "과일", "art_jam", "잼", "1개 10~60초", "작물 값 ×1.7"],
+    ["절임병", "채소", "art_pickles", "피클", "1개 10~60초", "작물 값 ×1.6"],
+    ["목장 가공기", "고기", "art_smoked", "훈제 고기", "1개 10~60초", "고기 값 ×1.4"],
+    ["목장 가공기", "우유", null, "치즈 (요리 재료)", "1개 10~60초", "우유 값 ×1.5"],
+    ["목장 가공기", "달걀", "art_mayo", "마요네즈", "1개 10~60초", "달걀 값 ×1.6"],
   ];
   const ing = D.ingredients.find(i => i.id === "cheese");
   $("#artisan-table").innerHTML = rows.map(([m, inp, id, out, t, v]) => `
@@ -267,7 +267,7 @@ function renderEnh() {
   $("#enh-table tbody").innerHTML = D.enh.map(e => `
     <tr class="${e.destroy ? "deep" : ""}"><td><b>+${e.lv}</b></td><td>${e.rank}등급</td><td>${e.rate}%</td><td>${won(e.price)}</td><td>${e.stones}개</td>
     <td>${e.destroy ? `<span class="tag-deep">파괴 ${e.destroy}%</span> 아니면 ` : ""}${e.down ? "50% 하락" : "유지"}</td>
-    <td>${e.eff} · ${e.fort}</td></tr>`).join("");
+    <td>${e.lv * 5}%</td></tr>`).join("");
   const sn = { farm: "농사 강화석", mine: "광산 강화석", fish: "낚시 강화석", butcher: "도축 강화석" };
   $("#stone-list").innerHTML = T.stones.map(st => `<span class="ing"><img src="${st.img}" alt="">${sn[st.id]}</span>`).join("");
   $("#protect-list").innerHTML = `<span class="ing"><img src="${T.protect[0]}" alt="">파괴 방지권</span><span class="ing"><img src="${T.protect[1]}" alt="">하락 방지권</span>`;
@@ -287,6 +287,19 @@ function renderRanks() {
         <span class="badge">호퍼 ${L["호퍼"][r.n - 1]}</span><span class="badge">상자 ${L["상자"][r.n - 1]}</span>
         <span class="badge">신호기 ${L["신호기"][r.n - 1]}</span><span class="badge">홈 ${r.homes}</span>
       </div>
+    </article>`).join("");
+}
+
+/* ---------- 레벨 특전 ---------- */
+function renderPerks() {
+  const el = $("#perk-list");
+  if (!el || !D.perks) return;
+  const sk = [["farm", "농사"], ["mine", "광부"], ["fish", "낚시"], ["cook", "요리"]];
+  el.innerHTML = sk.map(([k, n]) => `
+    <article class="panel">
+      <h3>${n} 특전</h3>
+      <ul class="timeline">${D.perks.filter(p => p.sk === k).sort((a, b) => a.lv - b.lv)
+        .map(p => `<li><b>Lv.${p.lv}</b> ${esc(p.name)} — ${esc(p.desc)}</li>`).join("")}</ul>
     </article>`).join("");
 }
 
@@ -329,7 +342,7 @@ function initNav() {
 initServer();
 renderSeasonTabs(); renderCrops(); renderQuality(); renderXpChart();
 renderFoodChips(); renderFoods(); renderIngredients();
-renderOres(); renderFish(); renderArtisan(); renderEnh(); renderRanks(); renderTickets(); renderBans(); renderCmds();
+renderOres(); renderFish(); renderArtisan(); renderEnh(); renderRanks(); renderPerks(); renderTickets(); renderBans(); renderCmds();
 initNav();
 $("#food-search").addEventListener("input", renderFoods);
 $("#food-lv").addEventListener("input", renderFoods);
