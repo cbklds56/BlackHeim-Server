@@ -3,11 +3,12 @@
    ▼ 여기만 고치면 서버 이름·주소·디스코드가 바뀝니다
    ============================================================ */
 const SERVER = {
-  name: "Black",
+  name: "BLACKHEIM",
+  nameKo: "블랙하임",
   wordmark: ["BLA", "CK"],        // 첫 화면 큰 글자 (앞은 검은 흙색, 뒤는 금색)
-  motto: "검은 흙이 가장 비옥하다",
+  motto: "",
   ip: "blackheim.kro.kr",
-  version: "Java 1.21.1",
+  version: "Java 26.2",
   discord: "https://discord.gg/j4AbNA6TT",  // 예: "https://discord.gg/xxxx" (비워두면 버튼 숨김)
   // ▼ 직접 만든(제미나이 등) 그림. site/assets/ 에 넣고 파일 이름을 적으면 적용, 비워두면 기본 디자인
   logo: "",               // 예: "assets/logo.png"  (상단 바·제목 대신 로고)
@@ -45,9 +46,9 @@ async function copy(text) {
 function initServer() {
   $$("[data-server-name]").forEach(el => (el.textContent = SERVER.name));
   $$("[data-server-motto]").forEach(el => (el.textContent = SERVER.motto || ""));
-  if (SERVER.wordmark && !SERVER.logo) $(".hero h1").innerHTML = `<span class="wm-a">${esc(SERVER.wordmark[0])}</span><span class="wm-b">${esc(SERVER.wordmark[1] || "")}</span>`;
   $$("[data-server-version]").forEach(el => (el.textContent = SERVER.version));
-  document.title = `${SERVER.name} · 서버 안내`;
+  document.title = `${SERVER.nameKo} ${SERVER.name} · 서버 안내`;
+  $$("[data-server-name-ko]").forEach(el => (el.textContent = SERVER.nameKo));
   $("#server-ip").textContent = SERVER.ip;
   $("#copy-ip").addEventListener("click", () => copy(SERVER.ip));
   if (SERVER.discord) { const a = $("#discord-link"); a.href = SERVER.discord; a.hidden = false; }
@@ -57,8 +58,7 @@ function initServer() {
   }
   if (SERVER.heroImage) {
     const h = $(".hero");
-    h.style.backgroundImage = `linear-gradient(rgba(0,0,0,.15), rgba(0,0,0,.15)), url("${SERVER.heroImage}")`;
-    h.classList.add("has-image");
+    $(".hero-shot img").src = SERVER.heroImage; $(".hero-shot source")?.remove();
   }
 
   const stats = [

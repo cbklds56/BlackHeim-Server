@@ -528,3 +528,187 @@ td.name img { width: 22px; height: 22px; vertical-align: -6px; margin-right: 6px
 .tier-row b{font-size:.85em}
 
 .badge.long { background: #3b2f5c; color: #d8c4ff; }
+.map-gallery-title{margin:26px 0 10px;text-align:center}
+.map-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:0 auto 18px;max-width:900px}
+.map-gallery figure{margin:0}
+.map-gallery img{width:100%;height:auto;border-radius:10px;display:block}
+.map-gallery figcaption{font-size:.88em;opacity:.75;margin-top:5px;text-align:center}
+@media (max-width:640px){.map-gallery{grid-template-columns:1fr}}
+
+/* ==========================================================================
+   검은 흙 (Black Soil) — 2026-10-28 개편
+   · 바탕 = 기름진 흙색, 판 = 한 톤 밝은 흙, 테두리 = 점토색 (그림자 · 유리 효과 없음)
+   · 초록(새싹) = 누를 수 있는 것 · 선택된 것 / 금색(수확) = 돈 · 가격
+   · 광산 · 강화 섹션 = 땅속 돌 색 (더 깊이 내려간 느낌)
+   · 글꼴 : 제목 Black Han Sans / 본문 Noto Sans KR
+   ========================================================================== */
+:root, :root[data-theme="dark"], :root[data-theme="light"] {
+  --soil: #211912; --soil-deep: #18120d; --loam: #2b2119; --loam-2: #33281e; --clay: #3e3027; --root: #5a4636;
+  --sprout: #a6d26a; --sprout-2: #8fbf52; --sprout-ink: #1b2610; --harvest: #f1b54c;
+  --parch: #f1e6d3; --dust: #b3a38b;
+  --stone: #1c1c21; --stone-2: #26262d; --stone-line: #3a3a44;
+  --bg: var(--soil); --bg-alt: var(--loam-2); --paper: var(--loam); --ink: var(--parch); --ink-soft: #d9ccb6;
+  --muted: var(--dust); --line: var(--clay); --wood: var(--harvest); --wood-dark: #b9822a; --leaf: var(--sprout); --leaf-dark: var(--sprout-2);
+  --gold: var(--harvest); --shadow: none; --radius: 10px; --accent-glow: transparent;
+  --mine-bg: var(--stone); --mine-panel: var(--stone-2); --mine-ink: var(--parch);
+  --display: "Black Han Sans", "Noto Sans KR", sans-serif;
+  --body: "Noto Sans KR", system-ui, sans-serif;
+  color-scheme: dark;
+}
+html { background: var(--soil); }
+body { background: var(--soil); color: var(--ink); font-family: var(--body); line-height: 1.7; letter-spacing: 0; }
+h1, h2, .title, .brand { font-family: var(--display); font-weight: 400; }
+h3, h4, b, strong, th, .card-head h4, .btn, .tabs button, .chip, .step-n, .item-title,
+.ticket b, .floor span, .gui-row figcaption, .ban-cat, .rank h4, .rank .price, .timeline b, .stats b, .toast, .tool-show figure {
+  font-family: var(--body); font-weight: 700;
+}
+h3 { font-size: 1.12rem; letter-spacing: -.01em; }
+a { color: var(--sprout); text-underline-offset: 3px; }
+code { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; background: var(--soil-deep); border: 1px solid var(--clay); color: var(--parch); border-radius: 5px; }
+:focus-visible { outline: 2px solid var(--sprout); outline-offset: 2px; }
+::selection { background: var(--sprout); color: var(--sprout-ink); }
+.muted { color: var(--dust); }
+.wrap { max-width: 1160px; padding: 0 20px; }
+
+/* 상단 바 */
+.topbar { background: var(--soil-deep); border-bottom: 1px solid var(--clay); box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; padding: 10px 20px; }
+.brand { font-size: 1.45rem; letter-spacing: .02em; color: var(--parch); }
+.brand img { width: 26px; height: 26px; }
+.nav a { font-family: var(--body); font-weight: 500; font-size: .95rem; color: var(--dust); border-radius: 0; padding: 6px 10px; border-bottom: 2px solid transparent; }
+.nav a:hover { background: none; color: var(--parch); }
+.nav a.on { background: none; color: var(--sprout); border-bottom-color: var(--sprout); }
+
+/* 첫 화면 : 실제 스폰 마을 그림 + 흙 단면 */
+.hero, .hero.has-image { position: relative; overflow: hidden; background: var(--soil); padding: 0; text-align: left; min-height: min(88vh, 860px); display: flex; flex-direction: column; }
+.hero-shot { position: absolute; inset: 0; }
+.hero-shot img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 62%; image-rendering: auto; display: block; }
+.hero-shot::after { content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(20, 18, 40, .55) 0%, rgba(20, 18, 40, 0) 38%, rgba(33, 25, 18, 0) 62%, rgba(33, 25, 18, .85) 92%, var(--soil) 100%); }
+.hero-inner { position: relative; z-index: 2; max-width: 1160px; margin: 0 auto; width: 100%; padding: clamp(48px, 11vh, 120px) 20px 0; flex: 1; }
+.hero h1.wordmark { margin: 0; font-size: clamp(4.2rem, 15vw, 10rem); line-height: .86; color: var(--parch); letter-spacing: .01em; text-transform: uppercase;
+  text-shadow: 0 6px 0 rgba(24, 18, 13, .55); }
+.hero .motto { margin: 14px 0 0; font-family: var(--display); font-size: clamp(1.25rem, 3.2vw, 1.9rem); color: var(--harvest); letter-spacing: .02em; font-weight: 400; text-shadow: 0 2px 10px rgba(0, 0, 0, .35); }
+.hero .tagline, :root[data-theme="dark"] .hero .tagline { margin: 10px 0 26px; max-width: 34em; font-size: clamp(1rem, 2.2vw, 1.15rem); color: #f6eee2; text-shadow: 0 1px 8px rgba(0, 0, 0, .5); }
+.join { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.ip-box { background: rgba(24, 18, 13, .82); border: 1px solid var(--root); border-radius: 12px; box-shadow: none; padding: 6px 6px 6px 16px; gap: 12px; }
+.ip-label { color: var(--dust); font-size: .85rem; }
+.ip-box code { background: none; border: 0; font-size: clamp(1.05rem, 2.6vw, 1.3rem); font-weight: 700; color: var(--parch); padding: 0; }
+.hero .ver { margin: 12px 0 0; font-size: .88rem; color: #e9dcc6; text-shadow: 0 1px 6px rgba(0, 0, 0, .6); }
+.btn { background: var(--sprout); color: var(--sprout-ink); border-radius: 8px; box-shadow: none; padding: 9px 16px; font-size: .98rem; transition: background .15s; }
+.btn:hover { filter: none; background: #b8de82; }
+.btn:active { transform: none; box-shadow: none; background: var(--sprout-2); }
+.btn.ghost, .hero .btn.ghost { margin: 0; background: rgba(24, 18, 13, .6); color: var(--parch); border: 1px solid var(--root); }
+.btn.ghost:hover { background: rgba(24, 18, 13, .85); }
+/* 흙 단면 : 풀 한 줄 + 흙, 그 위에 진짜 작물 그림 */
+.soil-line { position: relative; z-index: 2; height: 74px; margin-top: 40px; }
+.soil-line::before { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 26px;
+  background:
+    linear-gradient(var(--soil), var(--soil)) 0 8px / 100% 100% no-repeat,
+    repeating-linear-gradient(90deg, #5f9a34 0 16px, #6eab3d 16px 32px, #578e2f 32px 48px);
+  image-rendering: pixelated; }
+.soil-line::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 18px;
+  background: repeating-linear-gradient(90deg, #2a1f16 0 8px, var(--soil) 8px 16px, #2d2218 16px 24px, var(--soil) 24px 40px); opacity: .9; }
+.crop-row { position: absolute; left: 0; right: 0; bottom: 24px; display: flex; justify-content: center; gap: clamp(8px, 2.4vw, 28px); z-index: 1; }
+.crop-row img { width: clamp(30px, 5vw, 46px); animation: none; }
+.stats { list-style: none; margin: 0; padding: 18px 0 8px; display: flex; flex-wrap: wrap; gap: 6px 26px; justify-content: flex-start; }
+.stats li, .hero .stats li { background: none; border: 0; padding: 0; color: var(--dust); font-size: .95rem; display: flex; align-items: center; gap: 8px; border-radius: 0; }
+.stats img { width: 26px; height: 26px; }
+.stats b { color: var(--parch); font-size: 1.15rem; font-variant-numeric: tabular-nums; }
+
+/* 섹션 · 제목 (지층처럼 한 줄씩 나뉨) */
+.section, .section.alt, .section.dark { padding: 88px 0; background: var(--soil); color: var(--ink); border-top: 1px solid var(--clay); }
+.section.alt { background: #241b14; }
+.section.dark { background: var(--stone); border-top-color: var(--stone-line); }
+.title { margin: 0 0 14px; font-size: clamp(2.2rem, 5.4vw, 3.1rem); line-height: 1.1; letter-spacing: .01em; }
+.title span, .section.dark .title span { background: none; box-shadow: none; padding: 0; color: var(--parch); text-shadow: none; border-radius: 0; }
+.lead { color: #d9ccb6; font-size: 1.04rem; max-width: 46em; }
+.section.dark .lead, .on-dark { color: #cfc8d6; }
+.sub { font-family: var(--display); font-weight: 400; font-size: 1.55rem; margin: 48px 0 10px; letter-spacing: .01em; }
+.sub small { font-family: var(--body); font-weight: 400; color: var(--dust); }
+
+/* 판 · 카드 : 평평하게, 그림자 · 떠오르는 효과 없음 */
+.panel, .card, .rank, .ticket, .ing-item, .steps li, .table-wrap, .note,
+.section.dark .card, .section.dark .panel, .section.dark .table-wrap {
+  background: var(--loam); border: 1px solid var(--clay); border-radius: var(--radius); box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; color: var(--ink); transition: none; }
+.section.dark .card, .section.dark .panel, .section.dark .table-wrap, .tool-show figure { background: var(--stone-2); border-color: var(--stone-line); }
+.card:hover, .rank:hover, .ticket:hover, .ing-item:hover { transform: none; background: var(--loam); border-color: var(--clay); box-shadow: none; }
+.section.dark .card:hover { background: var(--stone-2); border-color: var(--stone-line); }
+.card:hover .card-head img.icon { transform: none; }
+.card-head img.icon, .quality img, .section.dark .card-head img.icon, .rod-strip img, .art-row img { background: var(--soil-deep); border-radius: 8px; filter: none; }
+.section.dark .card-head img.icon { background: var(--stone); }
+.card-head h4 { font-size: 1.05rem; letter-spacing: -.01em; }
+.card .meta, .section.dark .card .meta { color: var(--dust); }
+.prices b, .value, .rank .price, .section.dark .prices b { color: var(--harvest); font-variant-numeric: tabular-nums; }
+.badge { border-radius: 4px; background: var(--soil-deep); border: 1px solid var(--clay); color: #d9ccb6; font-size: .72rem; }
+.badge.lv { background: var(--sprout); color: var(--sprout-ink); border-color: transparent; font-weight: 700; }
+.badge.regrow { background: transparent; color: #9fc6ee; border-color: #3f5a73; }
+.badge.long { background: transparent; color: #cdb6f0; border-color: #54456e; }
+.ing, .section.dark .ing, .loot span { background: var(--soil-deep); border: 1px solid var(--clay); border-radius: 6px; color: var(--ink); }
+.section.dark .ing, .section.dark .loot span { background: var(--stone); border-color: var(--stone-line); }
+.stages { background: linear-gradient(transparent 72%, #3a2a1c 72%); border-radius: 6px; }
+
+/* 시작하기 단계 (진짜 순서라 숫자 유지) */
+.steps li { padding: 26px 18px 16px; }
+.step-n { background: var(--sprout); color: var(--sprout-ink); box-shadow: none; border-radius: 6px; width: 30px; height: 30px; font-size: 1rem; }
+.note { border-style: solid; }
+
+/* 표 */
+.data th, .section.dark .data th { background: var(--soil-deep); color: var(--dust); font-weight: 500; font-size: .86rem; }
+.section.dark .data th { background: var(--stone); }
+.data td, .data th, .section.dark .data td { border-color: var(--clay); }
+.section.dark .data td { border-color: var(--stone-line); }
+.data tr:hover td { background: transparent; }
+.mini th, .mini td { border-color: var(--clay); }
+
+/* 탭 · 칩 · 검색 */
+.tabs button, .chip { border-radius: 8px; background: transparent; border: 1px solid var(--clay); color: var(--dust); font-size: .95rem; transition: none; }
+.tabs button:hover, .chip:hover { color: var(--parch); border-color: var(--root); }
+.tabs button[aria-selected="true"], .tabs button[data-s="all"][aria-selected="true"], .chip[aria-pressed="true"] {
+  background: var(--sprout); color: var(--sprout-ink); border-color: var(--sprout); box-shadow: none; }
+input[type="search"] { border-radius: 8px; background: var(--soil-deep); border: 1px solid var(--clay); padding: 11px 14px; }
+input[type="search"]:focus { border-color: var(--sprout); box-shadow: none; outline: none; }
+.range input { accent-color: var(--sprout); }
+.timeline { border-left-color: var(--clay); }
+.timeline li::before { background: var(--sprout); border-color: var(--loam); }
+.timeline b { color: var(--sprout); }
+.cmd-table td.cmd code:hover { background: var(--sprout); color: var(--sprout-ink); }
+.ban-items span { background: transparent; color: #f0a99f; border-color: #6b3a33; }
+.ban-cat { color: var(--harvest); }
+
+/* 맵 사진 */
+.farm-preview { max-width: 720px; margin: 36px 0 10px; text-align: left; }
+.farm-preview img, .map-gallery img { border-radius: 10px; border: 1px solid var(--clay); }
+.farm-preview figcaption, .map-gallery figcaption { text-align: left; color: var(--dust); opacity: 1; font-size: .88rem; }
+.map-gallery-title { font-family: var(--display); font-weight: 400; font-size: 1.55rem; text-align: left; margin: 48px 0 12px; }
+.map-gallery { max-width: none; gap: 16px; }
+
+/* 아래 */
+.footer { background: var(--soil-deep); border-top: 1px solid var(--clay); color: var(--dust); text-align: left; padding: 36px 0; }
+.footer p:first-child { font-family: var(--display); font-size: 1.2rem; color: var(--parch); }
+.toast { background: var(--sprout); color: var(--sprout-ink); border: 0; box-shadow: none; border-radius: 8px; }
+
+@media (max-width: 640px) {
+  .section, .section.alt, .section.dark { padding: 60px 0; }
+  .hero { min-height: auto; }
+  .hero-inner { padding-top: 44px; }
+  .hero-shot img { object-position: 42% 60%; }
+  .soil-line { margin-top: 30px; height: 64px; }
+  .stats { gap: 6px 18px; }
+  .ip-box { width: 100%; justify-content: space-between; }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+.hero h1.wordmark { font-size: clamp(3.2rem, 10.5vw, 8.2rem); letter-spacing: .015em; }
+.footer p { margin: 0 0 6px; }
+.hero h1.wordmark { font-family: var(--display); font-weight: 400; }
+.hero-shot::before { content: ""; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(90deg, rgba(22, 17, 30, .72) 0%, rgba(22, 17, 30, .45) 34%, rgba(22, 17, 30, 0) 62%); }
+.hero-shot::after { z-index: 1; }
+.stats-wrap { position: relative; z-index: 2; width: 100%; }
+.hero .tagline { margin-top: 18px; }
+@media (max-width: 640px) {
+  .ip-box { flex-wrap: wrap; justify-content: flex-start; gap: 4px 12px; padding: 10px 12px; }
+  .ip-label { width: 100%; }
+  .ip-box code { flex: 1; }
+  .hero .ip-box .btn { padding: 8px 12px; }
+}
+.btn.ghost, .hero .btn.ghost { box-shadow: none; }
