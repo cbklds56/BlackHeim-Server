@@ -342,6 +342,24 @@ function renderCmds() {
 }
 
 /* ---------- 내비 강조 ---------- */
+
+// ---- 치장 (옷장) : tools/cosmetics2.py · shoes.py · mf_52_wardrobe.sk ----
+const COS = [["straw_hat", "밀짚모자", "hat", 60, "꽃 핀 꽂은 농부 모자"], ["cat_ears", "고양이 귀 리본", "hat", 80, "냥냥 · 분홍 리본"], ["flower_crown", "꽃 화관", "hat", 100, "알록달록 들꽃 엮음"], ["frog_hat", "개구리 모자", "hat", 100, "개굴개굴 웃는 개구리"], ["mushroom_hat", "버섯 모자", "hat", 100, "빨간 점박이 버섯"], ["bunny_ears", "토끼 귀 머리띠", "hat", 100, "한쪽 귀가 폴더 접힌 토끼"], ["santa_hat", "산타 모자", "hat", 120, "솜방울 달린 빨간 모자"], ["beret", "화가 베레모", "hat", 120, "별 핀 꽂은 빨간 베레모"], ["top_hat", "마술사 실크햇", "hat", 180, "보라 리본 · 꽃 장식 실크햇"], ["wizard_hat", "마법사 모자", "hat", 180, "별 · 달 박힌 휘어진 고깔"], ["viking_helm", "바이킹 투구", "hat", 220, "금테 두른 뿔 투구"], ["devil_horns", "악마 뿔", "hat", 220, "끝이 붉게 물든 뿔"], ["tiara", "다이아 티아라", "hat", 280, "푸른 보석 반짝 티아라"], ["halo", "천사 고리", "hat", 300, "머리 위 빛나는 고리"], ["crown", "황금 왕관", "hat", 350, "보석 박힌 벨벳 왕관"], ["wing_butterfly", "나비 날개", "wings", 300, "주황 · 파랑 호랑나비"], ["wing_dragonfly", "잠자리 날개", "wings", 300, "그물 무늬 투명 날개 네 장"], ["wing_leaf", "숲의 날개", "wings", 350, "커다란 잎 · 넝쿨 열매"], ["wing_fairy", "요정 날개", "wings", 350, "반짝이는 투명 날개"], ["wing_petal", "벚꽃잎 날개", "wings", 400, "커다란 꽃잎 다섯 장"], ["wing_demon", "악마 날개", "wings", 400, "붉은 막 날개"], ["wing_mech", "기계 날개", "wings", 450, "톱니바퀴 · 금속 칼날 깃"], ["wing_ice", "얼음 결정 날개", "wings", 450, "차갑게 빛나는 결정"], ["wing_dragon", "드래곤 날개", "wings", 450, "초록 용의 날개"], ["wing_angel", "천사 날개", "wings", 450, "새하얀 깃털 날개"], ["wing_peacock", "공작 날개", "wings", 500, "눈 무늬 화려한 부채"], ["wing_star", "별자리 날개", "wings", 550, "은하 위에 빛나는 별자리"], ["wing_thunder", "번개 날개", "wings", 550, "번쩍이는 번개 깃"], ["wing_phoenix", "불사조 날개", "wings", 600, "불꽃처럼 타오르는 깃털"], ["wing_rainbow", "무지개 날개", "wings", 600, "일곱 빛깔 깃털"], ["back_basket", "채소 바구니", "back", 120, "수확한 채소 가득"], ["back_tackle", "낚시 가방", "back", 120, "낚싯대 꽂힌 가방"], ["back_flower", "꽃 배낭", "back", 120, "꽃이 핀 분홍 배낭"], ["back_guitar", "기타", "back", 150, "등에 멘 통기타"], ["back_shell", "거북 등껍질", "back", 150, "단단한 초록 등껍질"], ["back_quiver", "화살통", "back", 150, "알록달록 깃 화살"], ["back_teddy", "곰인형 가방", "back", 180, "리본 단 곰돌이"], ["back_key", "태엽 열쇠", "back", 200, "태엽 인형처럼 빙글"], ["back_parasol", "레이스 양산", "back", 220, "분홍 레이스 양산"], ["cape_ocean", "바다 망토", "back", 250, "물결 무늬 푸른 망토"], ["cape_sakura", "벚꽃 망토", "back", 250, "꽃잎 흩날리는 분홍 망토"], ["back_sword", "전설의 대검", "back", 300, "푸른 빛 도는 거대한 검"], ["cape_flame", "불꽃 망토", "back", 300, "끝이 불타오르는 망토"], ["cape_night", "밤하늘 망토", "back", 300, "별이 박힌 남색 망토"], ["cape_royal", "왕실 망토", "back", 350, "금실 무늬 진홍 망토"], ["pet_chick", "병아리", "pet", 250, "삐약삐약"], ["pet_slime", "슬라임", "pet", 250, "말랑말랑 통통"], ["pet_hamster", "햄스터", "pet", 250, "볼 빵빵 해바라기씨"], ["pet_duck", "오리", "pet", 250, "파란 모자 꽥꽥"], ["pet_bunny", "토끼", "pet", 300, "깡총깡총"], ["pet_cat", "고양이", "pet", 300, "치즈냥이"], ["pet_penguin", "펭귄", "pet", 300, "빨간 털모자 펭귄"], ["pet_panda", "판다", "pet", 300, "대나무 냠냠"], ["pet_bee", "꿀벌", "pet", 300, "붕붕 날아다녀요"], ["pet_pig", "아기 돼지", "pet", 300, "꼬불 꼬리 꿀꿀"], ["pet_axolotl", "우파루파", "pet", 350, "분홍 아가미 우파"], ["pet_owl", "부엉이 박사", "pet", 350, "학사모 쓴 부엉이"], ["pet_fox", "여우", "pet", 350, "복슬복슬 꼬리"], ["pet_ghost", "꼬마 유령", "pet", 350, "둥실둥실 떠다녀요"], ["pet_dragon", "아기 드래곤", "pet", 500, "파닥파닥 날아다녀요"], ["aura_petal", "벚꽃잎 흩날림", "aura", 200, "파티클 효과"], ["aura_heart", "하트 뿅뿅", "aura", 200, "파티클 효과"], ["aura_note", "음표", "aura", 200, "파티클 효과"], ["aura_clover", "행운의 초록빛", "aura", 200, "파티클 효과"], ["aura_pollen", "꽃가루", "aura", 200, "파티클 효과"], ["aura_snow", "눈송이", "aura", 250, "파티클 효과"], ["aura_bubble", "비눗방울", "aura", 250, "파티클 효과"], ["aura_firefly", "반딧불이", "aura", 250, "파티클 효과"], ["aura_honey", "꿀방울", "aura", 250, "파티클 효과"], ["aura_magic", "마법 글자", "aura", 300, "파티클 효과"], ["aura_soul", "푸른 영혼불", "aura", 300, "파티클 효과"], ["aura_star", "별가루", "aura", 300, "파티클 효과"], ["aura_flame", "불꽃 발자국", "aura", 300, "파티클 효과"], ["aura_firework", "불꽃놀이", "aura", 350, "파티클 효과"], ["aura_totem", "축복의 빛", "aura", 400, "파티클 효과"], ["shoe_glass", "유리 구두", "shoes", 200, "반짝반짝 빛나는 유리 구두"], ["shoe_angel", "천사 날개 부츠", "shoes", 350, "발목에 하얀 날개가 펄럭"], ["shoe_phoenix", "불사조 부츠", "shoes", 400, "불꽃이 활활 타오르는 부츠"], ["shoe_frost", "얼음 여왕 부츠", "shoes", 350, "얼음 결정이 솟은 부츠"], ["shoe_galaxy", "은하수 부츠", "shoes", 350, "별이 흐르는 밤하늘 부츠"], ["shoe_cloud", "무지개 구름 신발", "shoes", 250, "폭신한 구름 위 무지개"], ["shoe_dragon", "용 비늘 부츠", "shoes", 350, "단단한 비늘 · 발톱"], ["shoe_sakura", "벚꽃 요정 슈즈", "shoes", 250, "꽃잎 리본이 감긴 요정 신발"], ["shoe_royal", "황금 왕실 부츠", "shoes", 400, "보석 박힌 왕의 부츠"], ["shoe_wizard", "마법사 컬 슈즈", "shoes", 250, "끝이 돌돌 말린 방울 신발"], ["shoe_neon", "네온 사이버 운동화", "shoes", 300, "형광으로 빛나는 운동화"], ["shoe_candy", "사탕 신발", "shoes", 200, "알록달록 막대사탕 신발"], ["shoe_ocean", "인어 조개 신발", "shoes", 250, "진주 · 조개 달린 신발"], ["shoe_demon", "악마 가시 부츠", "shoes", 350, "붉게 빛나는 가시 부츠"], ["shoe_bunny", "토끼 구름 슬리퍼", "shoes", 200, "귀 쫑긋 폭신 슬리퍼"]];
+const COS_KINDS = [["hat", "모자"], ["wings", "날개"], ["back", "등 · 망토"], ["pet", "펫"], ["shoes", "신발"], ["aura", "오라"]];
+let cosKind = "hat";
+function renderCos() {
+  $("#cos-tabs").innerHTML = COS_KINDS.map(([k, label]) =>
+    `<button role="tab" data-k="${k}" aria-selected="${k === cosKind}">${label}<span class="count">${COS.filter(c => c[2] === k).length}</span></button>`).join("");
+  $$("#cos-tabs button").forEach(b => b.addEventListener("click", () => { cosKind = b.dataset.k; renderCos(); }));
+  $("#cos-grid").innerHTML = COS.filter(c => c[2] === cosKind).map(([id, name, k, price, d]) => `
+    <article class="cos-card">
+      <img src="img/cos/${id}.png" alt="" loading="lazy">
+      <h4>${esc(name)}</h4>
+      <p>${esc(d)}</p>
+      <span class="mile">${price} M</span>
+    </article>`).join("");
+}
+
 function initNav() {
   const links = $$(".nav a");
   const io = new IntersectionObserver(es => {
@@ -356,7 +374,8 @@ function initNav() {
 initServer();
 renderSeasonTabs(); renderCrops(); renderQuality(); renderXpChart();
 renderFoodChips(); renderFoods(); renderIngredients();
-renderOres(); renderFish(); renderArtisan(); renderEnh(); renderRanks(); renderPerks(); renderTickets(); renderBans(); renderCmds();
+renderOres(); renderFish(); renderArtisan(); renderEnh(); renderRanks(); renderPerks(); renderTickets();
+  renderCos(); renderBans(); renderCmds();
 initNav();
 $("#food-search").addEventListener("input", renderFoods);
 $("#food-lv").addEventListener("input", renderFoods);
