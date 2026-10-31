@@ -102,7 +102,7 @@ function renderCrops() {
         </div>
       </div>
       <div class="stages">
-        ${c.stages.map((s, i) => `<img src="${s}" alt="${i + 1}단계">${i < 3 ? '<span class="arrow">›</span>' : ""}`).join("")}
+        ${c.stages.map((s, i) => `<img class="s3d" src="img/crops3d/${c.id}_${i + 1}.png" alt="${i + 1}단계" loading="lazy">${i < 3 ? '<span class="arrow">›</span>' : ""}`).join("")}
       </div>
       <div class="prices">
         <span class="meta"><img src="${c.seedImg}" alt="" style="width:18px;vertical-align:-4px"> 씨앗 ${won(c.seed)}</span>

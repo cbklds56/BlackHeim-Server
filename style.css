@@ -721,3 +721,10 @@ input[type="search"]:focus { border-color: var(--sprout); box-shadow: none; outl
 .cos-card p { margin: 0 0 8px; font-size: .8rem; opacity: .7; min-height: 2.2em; }
 .cos-card .mile { display: inline-block; background: #b06ae8; color: #fff; border-radius: 99px; padding: 2px 10px; font-size: .85rem; font-weight: 700; }
 .tabs button[data-k][aria-selected="true"] { background: #b06ae8; }
+
+/* 3D 작물 단계 (게임 속 모습) */
+.stages:has(img.s3d) { background: linear-gradient(transparent 80%, #6a4220 80%, #4a2c14) !important; border-radius: 8px; }
+.stages img.s3d { width: 22%; max-width: 64px; height: auto; aspect-ratio: 1; min-width: 0; image-rendering: auto; }
+.stages:has(img.s3d) .arrow { display: none; }
+.stages:has(img.s3d) { padding: 4px 4px 3px; }
+@media (max-width: 560px) { .grid.crops .stages img.s3d { width: 23%; height: auto; } }
