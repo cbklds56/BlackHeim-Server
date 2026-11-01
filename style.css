@@ -154,6 +154,8 @@ a { color: var(--leaf-dark); }
 .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 28px; }
 .cols.three { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 .cols.four { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top: 12px; }
+.cols.five { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-top: 12px; }
+.wood-extra { display: grid; gap: 8px; margin-bottom: 12px; }
 .list { margin: 0; padding-left: 1.2rem; }
 .list li { margin-bottom: 4px; }
 
@@ -728,3 +730,9 @@ input[type="search"]:focus { border-color: var(--sprout); box-shadow: none; outl
 .stages:has(img.s3d) .arrow { display: none; }
 .stages:has(img.s3d) { padding: 4px 4px 3px; }
 @media (max-width: 560px) { .grid.crops .stages img.s3d { width: 23%; height: auto; } }
+.cos-card .mile.r1 { background: #8a8a96; } .cos-card .mile.r2 { background: #3a9ad8; } .cos-card .mile.r3 { background: #b06ae8; } .cos-card .mile.r4 { background: linear-gradient(90deg, #e8a81a, #ff6a3a); }
+
+.fur-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 10px; margin-top: 10px; }
+.fur { margin: 0; text-align: center; }
+.fur img { width: 96px; height: 96px; image-rendering: pixelated; }
+.fur figcaption { font-size: 13px; display: flex; flex-direction: column; }
