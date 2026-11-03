@@ -68,6 +68,9 @@ function initServer() {
     ["보물", D.treasures.length, "img/treasures/golden_mask.png"],
     ["물고기", D.fish.length, "img/fish/legend.png"],
     ["가공품", D.artisan.length, "img/artisan/art_wine.png"],
+    ["나무", (D.woods || []).length, "img/wood/hardwood.png"],
+    ["가구", (D.furniture || []).length, "img/fur/chair_oak.png"],
+    ["치장", 90, "img/cos/crown.png"],
   ];
   $("#stats").innerHTML = stats.map(([n, v, img]) => `<li><img src="${img}" alt=""><b>${v}</b> ${n}</li>`).join("");
   $$("[data-count]").forEach(el => (el.textContent = D[el.dataset.count].length));
@@ -262,11 +265,15 @@ function renderArtisan() {
     ["제분기", "밀", "ing:flour", "밀가루 (요리 재료)", "1개 10~60초", "—"],
     ["제분기", "비트", "ing:sugar", "설탕 ×2 (요리 재료)", "1개 10~60초", "—"],
     ["제분기", "옥수수 · 해바라기", "ing:oil", "식용유 (해바라기 ×3)", "1개 10~60초", "—"],
+    ["수액 채취기", "참나무류 통나무", "wood:art_resin", "송진", "1개 10~60초", "통나무 값 ×1.6"],
+    ["수액 채취기", "자작 · 벚 · 정글 · 아카시아", "wood:art_syrup", "메이플 시럽", "1개 10~60초", "통나무 값 ×1.6"],
+    ["수액 채취기", "가문비 · 맹그로브", "wood:art_tar", "소나무 타르", "1개 10~60초", "통나무 값 ×1.6"],
+    ["수액 채취기", "버섯나무 줄기", "wood:art_nethersap", "네더 수액", "1개 10~60초", "통나무 값 ×1.6"],
   ];
   const ingImg = id => (D.ingredients.find(i => i.id === id) || {}).img;
   $("#artisan-table").innerHTML = rows.map(([m, inp, id, out, t, v]) => `
     <tr><td><b>${m}</b></td><td>${inp}</td>
-    <td class="name"><img src="${id.startsWith("ing:") ? ingImg(id.slice(4)) : A[id].img}" alt="">${out}</td><td>${t}</td><td>${v}</td></tr>`).join("");
+    <td class="name"><img src="${id.startsWith("ing:") ? ingImg(id.slice(4)) : id.startsWith("wood:") ? (D.woodImg || {})[id.slice(5)] : A[id].img}" alt="">${out}</td><td>${t}</td><td>${v}</td></tr>`).join("");
   $("#art-row").innerHTML = D.artisan.map(a => `<figure><img src="${a.img}" alt=""><figcaption>${esc(a.name)}</figcaption></figure>`).join("");
 }
 
