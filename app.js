@@ -9,7 +9,7 @@ const SERVER = {
   motto: "",
   ip: "blackheim.kro.kr",
   version: "Java 26.2",
-  discord: "https://discord.gg/j4AbNA6TT",  // 예: "https://discord.gg/xxxx" (비워두면 버튼 숨김)
+  discord: "https://discord.gg/a8GEZqES2",  // 예: "https://discord.gg/xxxx" (비워두면 버튼 숨김)
   // ▼ 직접 만든(제미나이 등) 그림. site/assets/ 에 넣고 파일 이름을 적으면 적용, 비워두면 기본 디자인
   logo: "",               // 예: "assets/logo.png"  (상단 바·제목 대신 로고)
   heroImage: "",          // 예: "assets/hero.png"  (첫 화면 배경 그림, 가로 1920x800 정도)
@@ -287,7 +287,7 @@ function renderEnh() {
     + `<div class="tier-row"><b>낚싯대</b>${T.rods.map(r => `<img src="${r.img}" alt="">`).join("")}</div></div>`;
   $("#enh-table tbody").innerHTML = D.enh.map(e => `
     <tr class="${e.destroy ? "deep" : ""}"><td><b>+${e.lv}</b></td><td>${e.rank}등급</td><td>${e.rate}%</td><td>${won(e.price)}</td><td>${e.stones}개</td>
-    <td>${e.destroy ? `<span class="tag-deep">파괴 ${e.destroy}%</span> 아니면 ` : ""}${e.down ? "50% 하락" : "유지"}</td>
+    <td>${e.destroy ? `<span class="tag-deep">파괴 ${e.destroy}% (+0 으로)</span> 아니면 ` : ""}${e.down ? "50% 하락" : "유지"}</td>
     <td>${e.lv * 5}%</td></tr>`).join("");
   const sn = { farm: "농사 강화석", mine: "광산 강화석", fish: "낚시 강화석", butcher: "도축 강화석" };
   $("#stone-list").innerHTML = T.stones.map(st => `<span class="ing"><img src="${st.img}" alt="">${sn[st.id]}</span>`).join("");
