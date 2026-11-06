@@ -288,7 +288,7 @@ function renderEnh() {
   $("#enh-table tbody").innerHTML = D.enh.map(e => `
     <tr class="${e.destroy ? "deep" : ""}"><td><b>+${e.lv}</b></td><td>${e.rank}등급</td><td>${e.rate}%</td><td>${won(e.price)}</td><td>${e.stones}개</td>
     <td>${e.destroy ? `<span class="tag-deep">파괴 ${e.destroy}% (+0 으로)</span> 아니면 ` : ""}${e.down ? "50% 하락" : "유지"}</td>
-    <td>${e.lv * 5}%</td></tr>`).join("");
+    <td>${e.lv * 7}%</td></tr>`).join("");
   const sn = { farm: "농사 강화석", mine: "광산 강화석", fish: "낚시 강화석", butcher: "도축 강화석" };
   $("#stone-list").innerHTML = T.stones.map(st => `<span class="ing"><img src="${st.img}" alt="">${sn[st.id]}</span>`).join("");
   $("#protect-list").innerHTML = `<span class="ing"><img src="${T.protect[0]}" alt="">파괴 방지권</span><span class="ing"><img src="${T.protect[1]}" alt="">하락 방지권</span>`;
