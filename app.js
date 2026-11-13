@@ -329,7 +329,7 @@ function renderWood() {
   if (!t || !D.woods) return;
   t.innerHTML = D.woods.map(w => `<tr><td>${esc(w.name)}</td><td>Lv.${w.lv}</td><td>${won(w.value)}</td><td>${w.xp}</td><td>${Math.round(w.regen * 0.6)}초</td><td>${esc(w.tap)} <span class="muted">${won(w.tapv)}</span></td></tr>`).join("");
   const I = D.woodImg || {};
-  const ex = [["hardwood", "단단한 나무", "3% · 비싸게 판매 · 왕좌 재료"], ["bird_nest", "새둥지", "1.5% · 우클릭하면 숲 보물(호박석 · 황금 도토리 · 이끼 낀 나침반 · 무늬 새알 · 은빛 솔방울, 모두 2만원) 70% · 강화석 25% · 뽑기권 5%"],
+  const ex = [["hardwood", "단단한 나무", "3% · 비싸게 판매 · 왕좌 재료"], ["bird_nest", "새둥지", "1.5% · 우클릭하면 숲 보물 70% — 은빛 솔방울 1만원(45%) · 황금 도토리 2만원(28%) · 무늬 새알 4만원(16%) · 이끼 낀 나침반 8만원(8%) · 호박석 20만원(3%, 전체 알림) · 강화석 25% · 뽑기권 5%"],
     ["forest_mushroom", "숲 버섯", "6%"], ["enh_stone_wood", "벌목 강화석", "벤 나무 가치만큼 · 도끼 강화"]];
   const fr = $("#fur-row");
   if (fr && D.furniture) fr.innerHTML = D.furniture.map(f => `<figure class="fur"><img src="${f.img}" alt=""><figcaption>${esc(f.name)}<small class="muted">${esc(f.mat)} ${f.n}개</small></figcaption></figure>`).join("");

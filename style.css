@@ -752,3 +752,13 @@ input[type="search"]:focus { border-color: var(--sprout); box-shadow: none; outl
 .skin-name { width: 44px; flex: none; font-weight: 700; }
 .skin-row img { width: 56px; height: 56px; image-rendering: pixelated; background: var(--bg-alt); border-radius: 8px; flex: none; }
 .skin-panel { grid-column: 1 / -1; }
+.note-text { margin: 0; line-height: 1.7; }
+@media (max-width: 560px) {
+  .skin-name { width: 34px; font-size: .85rem; }
+  .skin-row { gap: 4px; }
+  .skin-row img { width: 40px; height: 40px; border-radius: 6px; }
+  .news summary { padding: 12px 14px; font-size: 1rem; }
+  .news-body { padding: 0 14px 12px; }
+}
+.note-text.list { padding-left: 1.1rem; } .note-text.list li { margin-bottom: 6px; }
+@media (max-width: 560px) { .crop-row { overflow: hidden; gap: 6px; } .crop-row img { width: 28px; flex: none; } }
