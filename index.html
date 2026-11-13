@@ -16,6 +16,7 @@
 <header class="topbar">
   <a class="brand" href="#top"><img src="img/crops/parsnip.png" alt=""><span data-server-name>Black</span></a>
   <nav class="nav" aria-label="섹션">
+    <a href="#news">업데이트</a>
     <a href="#start">시작하기</a>
     <a href="#farm">농사</a>
     <a href="#cook">요리</a>
@@ -61,6 +62,131 @@
   </section>
 
   <!-- ===================== 시작하기 ===================== -->
+  <section id="news" class="section alt">
+    <div class="wrap">
+      <h2 class="title"><span>업데이트 소식</span></h2>
+      <p class="lead">최근 패치노트예요 (디스코드 업데이트 채널과 같은 글). 눌러서 펼쳐 보세요.</p>
+<!-- NEWS:START -->
+<details class="news" open><summary>📜 패치노트 #32 — 버그 수정 · 도축장 · 메뉴</summary><div class="news-body">
+<p class="news-h">🐛 <b>버그 수정</b></p>
+<ul class="list">
+<li><b>서버가 다시 켜질 때마다 경험치가 2배로 불어나던 버그</b> 고침</li>
+<ul class="list sub">
+<li>경험치가 필요량을 넘었는데 레벨이 그대로거나(예: 벌목 9408 / 8103), 갑자기 여러 레벨이 한꺼번에 오르던 원인이에요</li>
+<li>이제 불어나지 않아요. 넘쳐 있던 경험치는 접속하면 필요량 아래로 되돌려요</li>
+</ul>
+<li><b>가공 기계 글자가 하늘에 크게 떠 있던 것</b> ("소나무 타르 x64 2분 36초" 같은 예전 글자) 을 지웠어요 — 팜에 들어가면 자동으로 사라져요</li>
+<li><b>절임병</b> 그림이 아직 겹쳐 보이던 것 고침 (단지 목 부분이 위로 튀어나와 있었어요 — 이미 놓은 절임병도 자동으로 바뀌어요)</li>
+<li>도축장 <b>닭이 달걀을 계속 떨어뜨리던 것</b> 고침</li>
+</ul>
+<p class="news-h">🐄 <b>도축장</b></p>
+<ul class="list">
+<li>동물 체력이 <b>모두 20 (하트 10칸)</b> 으로 같아졌어요 (예전 소 30 · 돼지 · 양 25 · 닭 15)</li>
+<li>동물이 <b>8초마다 2마리씩</b> 나와요 (예전 15초마다 1마리) · 우리마다 최대 <b>16마리</b> (예전 12)</li>
+</ul>
+<p class="news-h">💰 <b>판매 제한 바뀜</b> — 농사가 후반에 다른 직업보다 너무(약 10배) 많이 벌던 것</p>
+<ul class="list">
+<li>많이 팔면 값이 내려가는 제한은 이제 <b>농사 · 요리만</b> 있어요 (작물 · 요리 · 와인 · 잼 · 피클 · 밀가루 · 설탕 · 식용유 · 식초)</li>
+<ul class="list sub">
+<li>1시간에 약 <b>1,800만원어치까지는 제 값</b> — 그보다 많이 팔면 조금씩 내려가요 (최저 25%)</li>
+<li>10분마다 20%씩 회복 · 접속 안 해도 회복돼요 · 팔 때 지금 몇 %인지 알려 줘요</li>
+</ul>
+<li><b>물고기 · 광물 · 나무 · 고기 · 보물은 제한 없음</b> (예전엔 같은 걸 많이 팔면 최대 -30%)</li>
+</ul>
+<p class="news-h">⛏️ <b>광물</b> : <b>이리듐 광석 1,280 → 1,930원</b> — 다이아몬드(1,320원)보다 비싸졌어요</p>
+<ul class="list">
+<li>대신 고대 잔해에서 1~2개 → <b>1개씩</b> 나와요 (캐서 버는 돈은 그대로, 지오드에서 나오는 이리듐은 그만큼 이득)</li>
+</ul>
+<p class="news-h">🎣 <b>낚시 별 등급 기준 낮춤</b> : ★ <b>75%</b> · ★★ <b>88%</b> · ★★★ <b>95%</b> (예전 80 · 92 · 98%)</p>
+<p class="news-h">🍲 <b>생선 요리 값 조정</b> — 싼 물고기로 만들어도 재료의 12배까지 벌리던 것</p>
+<ul class="list">
+<li>생선 스튜 25,600 → <b>16,400원</b> · 아마란스 생선 정식 14,600 → <b>10,000원</b></li>
+<li>요리에 들어가는 물고기를 작물과 같은 배율(x2.5)로 계산해요 (예전 x4)</li>
+</ul>
+<p class="news-h">📦 <b>창고</b> : <b>/창고1 ~ /창고10</b> 으로 원하는 창고를 바로 열 수 있어요 (/창고 2 처럼 띄어 써도 돼요)</p>
+<p class="news-h">📋 <b>메뉴 (Shift + F)</b> 에서 새 기능을 바로 열 수 있어요</p>
+<ul class="list">
+<li>이동 : <b>도박장</b> · <b>잠수터</b></li>
+<li>기타 : <b>쓰레기통</b></li>
+<li>정보 : <b>판매 통계</b></li>
+<li>랭킹 : <b>요리 랭킹</b></li>
+</ul>
+<p class="news-h">🎨 <b>도구 스킨</b> 다시 그림 — 모양은 얼음 스킨 기준, 색은 더 진하게, 테마 특색은 그대로</p>
+<ul class="list">
+<li>벚꽃 : 분홍 날 + 나무 자루 + 금 띠 + 벚꽃 한 송이 · 꽃잎이 날려요</li>
+<li>사탕 : 빨강 · 하양 줄무늬 지팡이 사탕 자루 + 민트 테두리 + 금 리본 · 사탕 조각이 날려요</li>
+<li>얼음 : 그대로 (색만 더 진하게)</li>
+<li>별빛 : 남색 밤하늘 날 + 금 테두리 + 금별 · 보라 성운과 금별이 감싸요</li>
+<li>손잡이를 가늘게 하고, 도구에서 오라가 뿜어져 나오며 은은하게 숨 쉬듯 빛나요</li>
+<li>괭이는 오른쪽이 잘린 것처럼 보이던 것을 둥글게 다듬었고, 도끼 · 괭이 오른쪽 빈 곳도 채웠어요</li>
+<li>스킨 도구를 들면 손 주변에 나오던 테마 반짝이가 안 나오던 것 고침</li>
+</ul>
+<p class="news-h">🎟️ <b>스킨권 그림</b> 이 지금 스킨 모습으로 바뀌었어요 (예전엔 도끼 · 괭이가 망치처럼 보였어요)</p>
+</div></details>
+<details class="news"><summary>📜 패치노트 #31 — 버그 수정 · 도박장 확률</summary><div class="news-body">
+<p class="news-h">🌾 <b>농사</b></p>
+<ul class="list">
+<li>작물이 심긴 흙밭이 <b>한 번만 쳐도 깨지던 것</b> 고침 — 이제 보통 블록처럼 끝까지 캐야 깨져요 (씨앗은 그대로 돌려받아요)</li>
+<li>작물 칸 제한을 안 넘었는데 <b>넘었다고 나오면서 작물이 뽑히던 것</b> 고침</li>
+<ul class="list sub">
+<li>다시 열리는 작물(딸기 · 고추 등)을 수확할 때 칸 수가 잘못 늘어나던 게 원인이었어요</li>
+<li>수확하거나 캔 칸은 바로 칸 수에서 빠져요</li>
+</ul>
+<li>농사 레벨이 안 되는 사람이 다 자란 재성장 작물을 우클릭하면 열매만 사라지던 것 고침</li>
+</ul>
+<p class="news-h">💧 <b>물뿌리개</b> : Shift + 우클릭 <b>충전이 안 되던 것</b> 고침 (오른손에 들었을 때)</p>
+<p class="news-h">🖥️ <b>작물 · 가구를 다시 아이템 액자 방식으로</b></p>
+<ul class="list">
+<li>어제 바꾼 새 방식(디스플레이)은 화면 밖 작물까지 전부 그려서 프레임이 더 떨어졌고, 가구형 작물(크랜베리 · 포도 · 가지 · 파인애플 · 고대 과일 · 멜론 · 호박 등)은 직접 클릭해서 수확이 잘 안 됐어요</li>
+<li>예전 방식으로 되돌렸어요 — 이미 바뀐 작물은 팜에 들어가면 자동으로 돌아와요</li>
+<li>대신 작물이 보이는 거리를 약 48블록으로 줄여서 예전보다 가볍게 했어요</li>
+</ul>
+<p class="news-h">⚙️ <b>가공 기계</b></p>
+<ul class="list">
+<li>설치했을 때 원래 블록 그림과 새 그림이 겹쳐 보이던 것 고침</li>
+<li>상점에서도 가공 기계가 새 그림으로 보여요</li>
+<li>목장 가공기 그림이 안 나오던 것 고침</li>
+<li>남은 시간 글자가 기계 모서리 쪽에 떠 있던 것 · 붙여 놓은 기계의 글자가 깜빡이던 것 고침</li>
+</ul>
+<p class="news-h">⛏️ <b>도구 스킨</b> : 괭이 · 도끼 스킨이 제 모양으로 안 보여서 모양을 고쳤어요 (곧 새 그림으로 한 번 더 바뀔 예정)</p>
+<p class="news-h">🎣 <b>낚시 난이도</b> — 싼 물고기가 비싼 물고기보다 어렵던 것 고침</p>
+<ul class="list">
+<li>예전엔 "튀어오르는" 물고기가 값과 상관없이 가장 어려웠어요 (멸치 · 청어 · 정어리 · 황어가 메기 · 철갑상어보다 어려움)</li>
+<li>이제 모든 물고기가 값에 맞는 난이도 — 멸치 · 청어 · 정어리 · 황어 · 강꼬치고기 · 호랑송어 · 돌연변이 잉어가 쉬워졌어요</li>
+<li>반대로 너무 쉽던 비싼 물고기(아귀 · 참치 · 장어 · 문어 · 복어)는 조금 어려워졌어요</li>
+</ul>
+<p class="news-h">🎰 <b>도박장 확률 낮춤</b> — 판돈이 클수록 많이 떨어져요</p>
+<ul class="list">
+<li>당첨 : 10만 <b>22%</b> · 50만 <b>15%</b> · 100만 <b>10%</b> (예전 32 · 30 · 27%)</li>
+<li>본전 : 10만 <b>22%</b> · 50만 <b>17%</b> · 100만 <b>12%</b> (예전 33 · 30 · 28%)</li>
+</ul>
+</div></details>
+<details class="news"><summary>📜 패치노트 #30 — 작물 값 올림</summary><div class="news-body">
+<p class="news-h">🌾 <b>작물 · 씨앗 값 약 3.8배</b> (칸 수 제한은 그대로)</p>
+<ul class="list">
+<li>칸 수 제한이 생긴 만큼 작물 값을 다시 올렸어요 — 농사 레벨이 높은 작물일수록 비싸요</li>
+<li>보통 작물 (약 18분) : 파스닙 70 → <b>280원</b> · 감자 70 → <b>260원</b> · 호박 300 → <b>1,160원</b> · 멜론 330 → <b>1,260원</b></li>
+<li>오래 자라는 작물 (1~2시간) : 요정 장미 <b>4,220원</b> · 적양배추 <b>4,560원</b> · 대황 <b>7,350원</b> · 스타후르츠 <b>8,380원</b> · 달콤한 보석 열매 <b>12,530원</b></li>
+<li>다시 열리는 작물 (약 9분마다) : 딸기 <b>220원</b> · 옥수수 <b>350원</b> · 파인애플 <b>570원</b> · 고대 과일 <b>630원</b></li>
+<li>씨앗 값도 같은 만큼 올랐어요 (파스닙 씨앗 90원 · 멜론 씨앗 380원)</li>
+<li>밀가루 · 설탕 · 식용유 · 식초도 같이 올랐어요 (380 · 280 · 480 · 380원)</li>
+<li>경험치 · 강화석 확률은 그대로예요</li>
+</ul>
+<p class="news-h">🍳 <b>요리 값</b></p>
+<ul class="list">
+<li>요리 값 = 작물 재료 값 <b>x2.5</b> + 그 밖의 재료(고기 · 우유 · 달걀 · 치즈 · 버터 · 물고기) 값 <b>x4</b></li>
+<li>내려간 요리는 없어요 — 작물이 많이 들어가는 요리일수록 많이 올랐어요</li>
+</ul>
+<p class="news-h">빵 800 → <b>1,900원</b> · 멜론 샐러드 2,600 → <b>6,300원</b> · 스타후르츠 주스 8,800 → <b>21,000원</b> · 보석 열매 파르페 13,500 → <b>32,000원</b></p>
+<ul class="list">
+<li>요리 시간 · 요리 경험치는 그대로예요</li>
+</ul>
+<p class="news-h">🍷 와인 · 주스 · 잼 · 피클은 작물 값에 곱해지는 거라 같이 올라요 (값이 큰 만큼 만드는 시간은 조금 길어져요, 1개 최대 1분)</p>
+</div></details>
+<!-- NEWS:END -->
+    </div>
+  </section>
+
   <section id="start" class="section">
     <div class="wrap">
       <h2 class="title"><span>시작하기</span></h2>
@@ -97,7 +223,8 @@
   <section id="farm" class="section alt">
     <div class="wrap">
       <h2 class="title"><span>농사</span></h2>
-      <p class="lead">스타듀밸리 작물 <b data-count="crops">44</b>종. <b>계절 없이</b> 언제든 심을 수 있고, 농사 레벨이 오르면 새 작물이 열려요. <b>팜에 아무도 없어도, 서버가 잠깐 꺼져 있어도 작물은 자라요</b> (다시 와 보면 지나간 시간만큼 자라 있어요 · 최대 3시간치). 대부분 <b>약 18분</b>이면 다 자라고, 높은 레벨의 비싼 작물 몇 개(요정 장미 · 적양배추 1시간, 대황 · 스타후르츠 1.5시간, 달콤한 보석 열매 2시간)는 <b>오래 걸리는 대신 그만큼 비싸요</b> — 나가기 전이나 광산·낚시 가기 전에 심어 두세요!</p>
+      <p class="lead">스타듀밸리 작물 <b data-count="crops">44</b>종. <b>계절 없이</b> 언제든 심을 수 있고, 농사 레벨이 오르면 새 작물이 열려요. <b>팜에 아무도 없어도, 서버가 잠깐 꺼져 있어도 작물은 자라요</b> (다시 와 보면 지나간 시간만큼 자라 있어요 · 최대 12시간치). 대부분 <b>약 18분</b>이면 다 자라고, 높은 레벨의 비싼 작물 몇 개(요정 장미 · 적양배추 1시간, 대황 · 스타후르츠 1.5시간, 달콤한 보석 열매 2시간)는 <b>오래 걸리는 대신 그만큼 비싸요</b> — 나가기 전이나 광산·낚시 가기 전에 심어 두세요!</p>
+      <p class="note"><b>작물 칸 수 제한 (2026-11-11)</b> — 팜 등급(크기)마다 심을 수 있는 작물 칸 수가 정해져 있어요 : 한 변 100 <b>3,000칸</b> · 150 <b>5,000칸</b> · 200 <b>7,500칸</b> · 250 <b>10,000칸</b>. 작물은 <b>팜 바닥 한 층</b>에만 심을 수 있어요. 지금 칸 수는 <code>/팜정보</code>. 작물 값은 농사 레벨이 높은 작물일수록 비싸요 : 보통 작물(약 18분) <b>280원(Lv.1) ~ 1,260원(멜론)</b>, 1~2시간 걸리는 작물은 <b>4,220 ~ 12,530원</b>, 다시 열리는 작물은 한 개 값이 낮은 대신 약 9분마다 씨앗 없이 또 열려요 (2026-11-11 : 처음 1/10 로 내렸던 값을 다시 3.8배로 올림). 요리하면 작물 재료 값의 <b>2.5배</b>로 팔 수 있어요.</p>
       <div class="tabs" role="tablist" id="season-tabs"></div>
       <div class="grid crops" id="crop-grid"></div>
 
@@ -120,7 +247,7 @@
           <p>농사 <b>Lv.15 수확물 바로 줍기</b> · <b>Lv.25 자동 다시 심기</b>가 열려요. 농부 직업이면 <b>특성</b>(Lv.50 = 전부 만렙) — 풍작(작물 +1) · 황금 손(★ 확률) · 씨앗 받기 · 단골 손님(판매가) 등을 골라 찍어요.</p>
           <p class="muted">모든 스킬의 특성 표는 <a href="#grow">성장</a>에서, 게임에서는 <code>/특성</code>.</p>
           <h3>가격</h3>
-          <p>시세 변동 없이 <b>항상 같은 가격</b>이에요 (<code>/시세</code> 에서 작물 · 요리 · 광물 가격표 확인). 다만 <b>나 혼자</b> 같은 아이템을 한꺼번에 아주 많이 팔면 내 값만 조금 내려가요 (최대 -30%, 1시간쯤이면 회복 · 다른 사람과는 상관없음) — 여러 가지를 골고루 키우고 캐는 게 이득!</p>
+          <p>시세 변동 없이 <b>항상 같은 가격</b>이에요 (<code>/시세</code> 에서 작물 · 요리 · 광물 가격표 확인). 다만 <b>농사 · 요리</b>(작물 · 요리 · 와인 · 잼 · 피클 · 밀가루 · 설탕 · 식용유 · 식초)는 <b>내가</b> 짧은 시간에 아주 많이 팔면 그 값이 내려가요 — 1시간에 약 1,800만원어치까지는 제 값, 그보다 많이 팔면 조금씩 내려가요 (최저 25%, 10분마다 20%씩 회복 · 다른 사람과는 상관없음). <b>물고기 · 광물 · 나무 · 고기 · 보물은 제한 없이</b> 항상 같은 값이에요.</p>
           <p class="muted">최종 판매가 = 기본가 × 등급 × (1 + 농사레벨 × 1%)</p>
         </article>
       </div>
@@ -131,15 +258,15 @@
           <table class="data">
             <thead><tr><th>등급</th><th>물 담는 양</th><th>충전 최대 범위</th><th>필요 농사 Lv</th><th>업그레이드</th></tr></thead>
             <tbody>
-              <tr><td><b>구리</b></td><td>20</td><td>—</td><td>1</td><td>기본 지급</td></tr>
-              <tr><td><b>철</b></td><td>50</td><td>5×5</td><td>5</td><td>10만원</td></tr>
-              <tr><td><b>금</b></td><td>100</td><td>7×7</td><td>15</td><td>40만원</td></tr>
-              <tr><td><b>다이아</b></td><td>165</td><td>11×11</td><td>25</td><td>100만원</td></tr>
+              <tr><td><b>구리</b></td><td>25</td><td>3×3</td><td>1</td><td>기본 지급</td></tr>
+              <tr><td><b>철</b></td><td>100</td><td>5×5</td><td>5</td><td>10만원</td></tr>
+              <tr><td><b>금</b></td><td>200</td><td>7×7</td><td>15</td><td>40만원</td></tr>
+              <tr><td><b>다이아</b></td><td>500</td><td>11×11</td><td>25</td><td>100만원</td></tr>
               <tr><td><b>이리듐</b></td><td><b>무한</b></td><td>15×15</td><td>35</td><td>300만원</td></tr>
             </tbody>
           </table>
         </div>
-        <p class="muted">물뿌리개를 들고 강화 장인에게 가면 한 단계씩 올라가요 (항상 성공, 강화석 필요 없음). 물뿌리개는 처음에 받는 구리 하나로 시작해요 (상점에서는 안 팔아요). 철부터 <b>Shift + 우클릭을 꾹</b> 누르면 충전되고, 충전하는 동안 물 줄 범위가 <b>파란 테두리</b>로 보여요. 떼면 바라보는 곳에 넓게 물을 줘요 (Shift 를 누르고 있는 동안은 물이 안 나가요). 물이 떨어지면 물을 우클릭해서 채워요 — 한 번에 <b>구리 2 · 철 5 · 금 10 · 다이아 25</b>씩, 이리듐은 늘 가득.</p>
+        <p class="muted">물뿌리개를 들고 강화 장인에게 가면 한 단계씩 올라가요 (항상 성공, 강화석 필요 없음). 물뿌리개는 처음에 받는 구리 하나로 시작해요 (상점에서는 안 팔아요). 구리부터 물뿌리개를 <b>오른손</b>에 들고 <b>Shift + 우클릭을 꾹</b> 누르면 충전되고 (왼손에 들면 충전 없이 그냥 물 주기), 충전하는 동안 물 줄 범위가 <b>파란 테두리</b>로 보여요. 떼면 바라보는 곳에 넓게 물을 줘요 (Shift 를 누르고 있는 동안은 물이 안 나가요). 물이 떨어지면 물을 우클릭해서 채워요 — 한 번에 <b>구리 2 · 철 5 · 금 10 · 다이아 25</b>씩, 이리듐은 늘 가득.</p>
       </article>
 
       <article class="panel wide">
@@ -159,7 +286,7 @@
 
       <article class="panel wide">
         <h3>레벨업에 필요한 경험치</h3>
-        <p class="muted">필요 경험치 = 100 × 레벨<sup>2.3</sup> · 최대 Lv.50 · 농사·광부·낚시·요리·벌목 공통. 처음엔 빨리 크고(Lv.14 까지 초보 보너스) 뒤로 갈수록 오래 걸려요 — <b>하루 최대 10시간 기준, 4~5개월</b>에 끝까지 가도록 맞췄어요 (그 활동만 했을 때 Lv.50 까지 농사 약 1,000시간 · 광산 · 낚시 · 요리 각 약 380시간).</p>
+        <p class="muted">필요 경험치 = 200 × 레벨<sup>2.3</sup> · 최대 Lv.50 · 농사·광부·낚시·요리·벌목 공통 (11/10 : 경험치 통 x2 · 얻는 경험치도 x2 — 레벨업 속도는 그대로). 처음엔 빨리 크고(Lv.14 까지 초보 보너스) 뒤로 갈수록 오래 걸려요 — <b>하루 최대 10시간 기준, 4~5개월</b>에 끝까지 가도록 맞췄어요 (그 활동만 했을 때 Lv.50 까지 농사 약 1,000시간 · 광산 · 낚시 · 요리 각 약 380시간).</p>
         <svg id="xp-chart" class="chart" viewBox="0 0 600 180" role="img" aria-label="레벨별 필요 경험치 그래프"></svg>
       </article>
     </div>
@@ -169,7 +296,7 @@
   <section id="cook" class="section">
     <div class="wrap">
       <h2 class="title"><span>요리</span></h2>
-      <p class="lead">작물 + 물고기 + 식재료로 요리 <b data-count="foods">50</b>종. <b>작물마다 그 작물만의 요리</b>가 하나씩 있어요 (작물 44종 = 작물 요리 44개, 고기·생선 요리 6개). <b>팜에 설치한 요리 테이블을 우클릭</b>하면 요리 화면이 열려요 (처음 접속하면 1개 지급, 상점 도구에서 추가 구매). 요리 값은 <b>재료 값의 1.5배</b>(100원 단위)라 재료로 파는 것보다 이득이에요. ★ 등급 재료로 만들면 요리에도 별이 붙고, 아이템 그림에도 별 테두리가 생겨요.</p>
+      <p class="lead">작물 + 물고기 + 식재료로 요리 <b data-count="foods">50</b>종. <b>작물마다 그 작물만의 요리</b>가 하나씩 있어요 (작물 44종 = 작물 요리 44개, 고기·생선 요리 6개). <b>팜에 설치한 요리 테이블을 우클릭</b>하면 요리 화면이 열려요 (처음 접속하면 1개 지급, 상점 도구에서 추가 구매). 요리 값 = <b>작물 · 물고기 재료 값 × 2.5 + 그 밖의 재료(고기 · 우유 · 달걀 · 치즈 · 버터) 값 × 4</b> (100원 단위, 밀가루 · 설탕 · 식용유 · 식초는 작물 재료로 침 · 물고기는 어떤 물고기를 넣어도 같은 값으로 계산)라 재료로 파는 것보다 훨씬 이득이에요. ★ 등급 재료로 만들면 요리에도 별이 붙고, 아이템 그림에도 별 테두리가 생겨요.</p>
       <div class="cols">
         <article class="panel">
           <h3>요리 레벨 · 시간</h3>
@@ -184,7 +311,7 @@
           <ul class="list">
             <li>요리 테이블에서 요리를 고르고 <b>개수</b>(1 · 4 · 8 · 16 · 32 · 64 · 최대)를 고르면 재료가 한 번에 빠져요</li>
             <li>화로처럼 시간이 지나면 테이블을 <b>우클릭해서 한꺼번에</b> 받아요 (64개씩 겹쳐요)</li>
-            <li>요리 레벨로 요리 테이블(1 → 6개) · 가공 기계(3 → 16개) 개수가 늘고, 특성으로 재료 아끼기 · 별 확률 · 빠른 손 · 큰 그릇</li>
+            <li>요리 레벨로 요리 테이블(1 → 6개) · 가공 기계(종류마다 5 → 12개) 개수가 늘고, 특성으로 재료 아끼기 · 별 확률 · 빠른 손 · 큰 그릇</li>
           </ul>
         </article>
       </div>
@@ -207,17 +334,17 @@
             <li><b>식초</b> ← 술통에 벼</li>
             <li><b>치즈 · 버터</b> ← 목장 가공기에 우유 (고르는 화면에서 선택)</li>
           </ul>
-          <p class="muted">밀가루 · 설탕 · 식용유 · 식초 · 치즈 · 버터는 <b>팔 수도 있어요</b> (아래 가치 그대로). 달걀 · 우유 · 고기는 판매 불가 — 요리하거나 가공해서 팔아요.</p>
+          <p class="muted">밀가루 · 설탕 · 식용유 · 식초 · 치즈 · 버터는 <b>팔 수도 있어요</b> (아래 가치 그대로). 달걀 · 우유 · 고기도 <b>가치의 절반</b>에 팔 수 있어요 (요리를 안 하면 팔아서 정리).</p>
           <div class="ing-grid" id="ing-grid"></div>
         </article>
         <article class="panel">
           <h3>도축장</h3>
-          <p><code>/도축장</code> 은 동물을 잡는 <b>따로 된 월드</b>예요. 동물이 계속 다시 나타나고, 잡으면 요리 재료가 나와요. 동물 체력이 높아서 <b>Black 칼을 강화할수록</b> 빨리 잡아요 (단계마다 데미지 +1.5). <b>팜(섬)에서 잡으면 아무것도 안 나와요.</b> 동물 번식은 막혀 있어요. 동물은 <b>15초마다</b> 우리마다 한 마리씩 다시 나타나요 (우리당 최대 12마리). 잡을 때 <b>5%</b> 확률로 <b>도축 보물</b>이 나와요 — 돼지 송로버섯 · 닭 황금 깃털 · 소 질 좋은 가죽 · 양 부드러운 양털 (5천~1만 3천원에 팔려요).</p>
+          <p><code>/도축장</code> 은 동물을 잡는 <b>따로 된 월드</b>예요. 동물이 계속 다시 나타나고, 잡으면 요리 재료가 나와요. <b>칼로만</b> 잡을 수 있어요 (다른 도구로는 데미지가 안 들어가요). <b>Black 칼을 강화할수록</b> 빨리 잡아요 (단계마다 데미지 +1.5). <b>팜(섬)에서 잡으면 아무것도 안 나와요.</b> 동물 번식은 막혀 있어요. 동물은 <b>8초마다</b> 우리마다 <b>두 마리씩</b> 다시 나타나요 (우리당 최대 16마리). 체력은 <b>모두 20 (하트 10칸)</b> 으로 같아요. 잡을 때 <b>5%</b> 확률로 <b>도축 보물</b>이 나와요 — 돼지 송로버섯 · 닭 황금 깃털 · 소 질 좋은 가죽 · 양 부드러운 양털 (5천~1만 3천원에 팔려요).</p>
           <ul class="list">
-            <li><b>소</b> → 소고기 1~3, 우유 0~1</li>
-            <li><b>돼지</b> → 돼지고기 1~3</li>
-            <li><b>닭</b> → 닭고기 1~2, 달걀 0~2</li>
-            <li><b>양</b> → 양고기 1~2</li>
+            <li><b>소</b> → 소고기 1~4, 우유 0~2 · 보물 질 좋은 가죽 1만 1,000원</li>
+            <li><b>돼지</b> → 돼지고기 1~4 · 보물 송로버섯 1만원</li>
+            <li><b>닭</b> → 닭고기 1~3, 달걀 0~3 · 보물 황금 깃털 7,500원 (도축장 닭은 알을 안 낳아요)</li>
+            <li><b>양</b> → 양고기 1~3 · 보물 부드러운 양털 6,500원</li>
           </ul>
         </article>
       </div>
@@ -259,19 +386,19 @@
             <li>찌를 던지고 <b>"!"</b> 가 뜨면 우클릭</li>
             <li>세로 막대 화면이 나오면 <b>우클릭을 꾹 누르고 있는 동안</b> 초록 막대가 올라가요. 떼면 내려가요.</li>
             <li>초록 막대 안에 물고기를 두면 게이지가 차고, 다 차면 성공!</li>
-            <li><b>별 등급 = 실력</b> : 낚는 동안 물고기가 초록 막대 안에 있던 비율 — <b>80%</b> ★ · <b>92%</b> ★★ · <b>98%</b> ★★★ (처음 1초는 빼고) · 가끔(10%) 나오는 <b>보물 상자</b>는 걸리고 곧 떠서 <b>6초 뒤 가라앉아요</b> — 그 안에 막대로 <b>약 2초</b> 덮으면 획득! 보물이 떠 있는 동안은 물고기 게이지가 천천히 차서 노릴 시간이 있어요. 보상은 아래 <b>보물 5가지</b> 중 하나 + 낚시 경험치</li>
+            <li><b>별 등급 = 실력</b> : 낚는 동안 물고기가 초록 막대 안에 있던 비율 — <b>75%</b> ★ · <b>88%</b> ★★ · <b>95%</b> ★★★ (처음 1초는 빼고) · 가끔(10%) 나오는 <b>보물 상자</b>는 걸리고 곧 떠서 <b>6초 뒤 가라앉아요</b> — 그 안에 막대로 <b>약 2초</b> 덮으면 획득! 보물이 떠 있는 동안은 물고기 게이지가 천천히 차서 노릴 시간이 있어요. 보상은 아래 <b>보물 5가지</b> 중 하나 + 낚시 경험치</li>
           </ol>
           <p class="muted">낚시 레벨 10마다 초록 막대가 커져요 (Lv.1 26% → Lv.40 46%).</p>
           <h4>낚시 보물</h4>
-          <p>보물 가치는 <b>그때 걸린 물고기 기본 가치 × 배수</b> (최소 1만원) — 좋은 물고기를 낚을수록 보물도 비싸져요. 비쌀수록 드물어요. 판매함에 팔 수 있어요.</p>
+          <p>보물 값은 <b>종류마다 고정</b>이라 같은 보물끼리 겹쳐져요. 비쌀수록 드물어요. 판매함에 팔 수 있어요.</p>
           <table class="mini">
             <thead><tr><th>보물</th><th>등급</th><th>확률</th><th>가치</th></tr></thead>
             <tbody>
-              <tr><td><img src="img/treasures/fish_sea_glass.png" alt="" width="32" height="32" style="image-rendering:pixelated;vertical-align:middle"> 바다 유리</td><td>흔함</td><td>50%</td><td>1 ~ 1.5배</td></tr>
-              <tr><td><img src="img/treasures/fish_coral.png" alt="" width="32" height="32" style="image-rendering:pixelated;vertical-align:middle"> 산호 조각</td><td>고급</td><td>30%</td><td>2 ~ 3배</td></tr>
-              <tr><td><img src="img/treasures/fish_pearl.png" alt="" width="32" height="32" style="image-rendering:pixelated;vertical-align:middle"> 진주</td><td>희귀</td><td>14%</td><td>4 ~ 6배</td></tr>
-              <tr><td><img src="img/treasures/fish_gold_bar.png" alt="" width="32" height="32" style="image-rendering:pixelated;vertical-align:middle"> 가라앉은 금괴</td><td>영웅</td><td>5%</td><td>10 ~ 14배</td></tr>
-              <tr><td><img src="img/treasures/fish_prism_shell.png" alt="" width="32" height="32" style="image-rendering:pixelated;vertical-align:middle"> 무지개 조개</td><td>전설</td><td>1%</td><td>25 ~ 40배</td></tr>
+              <tr><td><img src="img/treasures/fish_sea_glass.png" alt="" width="32" height="32" style="image-rendering:pixelated;vertical-align:middle"> 바다 유리</td><td>흔한 보물</td><td>50%</td><td>1만원</td></tr>
+              <tr><td><img src="img/treasures/fish_coral.png" alt="" width="32" height="32" style="image-rendering:pixelated;vertical-align:middle"> 산호 조각</td><td>고급 보물</td><td>30%</td><td>2만 5,000원</td></tr>
+              <tr><td><img src="img/treasures/fish_pearl.png" alt="" width="32" height="32" style="image-rendering:pixelated;vertical-align:middle"> 진주</td><td>희귀 보물</td><td>14%</td><td>5만원</td></tr>
+              <tr><td><img src="img/treasures/fish_gold_bar.png" alt="" width="32" height="32" style="image-rendering:pixelated;vertical-align:middle"> 가라앉은 금괴</td><td>영웅 보물</td><td>5%</td><td>12만원</td></tr>
+              <tr><td><img src="img/treasures/fish_prism_shell.png" alt="" width="32" height="32" style="image-rendering:pixelated;vertical-align:middle"> 무지개 조개</td><td>전설 보물</td><td>1%</td><td>30만원</td></tr>
             </tbody>
           </table>
           <p class="muted">무지개 조개를 건지면 서버 전체에 공지가 떠요. 보물 상자가 나올 확률은 특성 · 낚싯대 +6 능력으로 올라가요.</p>
@@ -281,7 +408,7 @@
           <p>낚싯대는 <code>/강화</code> 할수록 모양이 화려해지고 <b>미끼</b>가 붙어요. 강화할 때마다 <b>입질이 빨라져요</b> (+0 3~22초 → +10 1~10초).</p>
           <div class="rod-strip" id="rod-strip"></div>
           <h3>낚시 대회</h3>
-          <p>매일 <b>21:00</b>, 10분 동안 가장 큰 물고기를 낚은 사람이 우승!<br>1등 150만원 · 2등 75만원 · 3등 35만원</p>
+          <p>매일 <b>21:00:00</b> ~ <b>21:15:00</b> (15분, 서버 시계 기준) 동안 가장 큰 물고기를 낚은 사람이 우승!<br>1등 150만원 · 2등 75만원 · 3등 35만원</p>
           <p class="muted">같은 자리·같은 시야로 계속 낚으면 잠수 낚시로 보고 보상이 없어요. 잠수는 <code>/잠수터</code> 로! (잠수터 안에서는 낚시를 할 수 없어요)</p>
         </article>
       </div>
@@ -309,7 +436,7 @@
           <h3>가끔 나오는 것</h3>
           <div class="wood-extra" id="wood-extra"></div>
           <h3>수액 채취기</h3>
-          <p>상점(도구)에서 사서 팜에 설치 (가공 기계 개수에 포함, 벌목 Lv.5). 통나무를 가방에 넣고 우클릭 → 나무에 따라 <b>송진 · 메이플 시럽 · 소나무 타르 · 네더 수액</b> (값 x1.6). 특성 <b>송진 장인</b>으로 시간 -30%까지.</p>
+          <p>상점(도구)에서 사서 팜에 설치 (수액 채취기끼리 개수 제한, 벌목 Lv.5). 통나무를 가방에 넣고 우클릭 → 나무에 따라 <b>송진 · 메이플 시럽 · 소나무 타르 · 네더 수액</b> (값 x1.4). 특성 <b>송진 장인</b>으로 시간 -30%까지.</p>
         </article>
       </div>
       <article class="panel wide">
@@ -331,7 +458,7 @@
     <div class="wrap">
       <h2 class="title"><span>가공 기계</span></h2>
       <p class="lead"><b>상점 건물의 도구 상인</b>(<code>/상점</code> 으로 이동)에게서 기계를 사서 팜에 설치하고 <b>우클릭</b>하면 <b>만들 것 고르기 화면</b>이 열려요. 가방에 있는 재료로 만들 수 있는 것만 보여요 (★ 등급 재료는 따로). 하나를 누르고 <b>개수</b>(1 · 4 · 8 · 16 · 32 · 64 · 최대)를 고르면 재료가 가방에서 빠지고 바로 시작! 기계 위에 남은 시간이 뜨고, 다 되면 우클릭으로 한꺼번에 받아요.</p>
-      <p class="muted">시간은 요리와 같은 기준 — 1개당 <b>남는 돈에 비례</b>(1초에 40원꼴, 1개 10초 ~ 1분) × 개수. 팜마다 개수 제한이 있고 <b>요리 레벨</b>로 늘어나요 — 가공 기계 3개 → 최대 16개, 요리 테이블 1개 → 최대 6개 (<a href="#grow">특성</a>).</p>
+      <p class="muted">시간은 요리와 같은 기준 — 1개당 <b>남는 돈에 비례</b>(1초에 40원꼴, 1개 10초 ~ 1분) × 개수. 팜마다 개수 제한이 있고 <b>요리 레벨</b>로 늘어나요 — 가공 기계는 <b>종류마다</b> 5개 → 최대 12개 (술통 5개 · 절임병 5개 … 따로), 요리 테이블 1개 → 최대 6개 (<a href="#grow">특성</a>).</p>
       <div class="table-wrap">
         <table class="data">
           <thead><tr><th>기계</th><th>넣는 것</th><th>나오는 것</th><th>시간</th><th>값</th></tr></thead>
@@ -380,13 +507,13 @@
         <article class="panel">
           <h3>강화석</h3>
           <div class="stones" id="stone-list"></div>
-          <p>번 것의 <b>가치만큼</b> 나와요 — <b>2만원어치마다 평균 1개</b>이에요 (도축은 특성이 없어서 <b>1.5배</b>). <b>농사만</b> 작물 값과 상관없이 <b>수확 1번마다 0.3%</b> 확률이에요.</p>
+          <p>모든 강화석은 <b>한 번 할 때마다 정해진 확률</b>로 나와요. <b>도구 +10 · 특성 "강화석 수집가" 3단계</b>까지 키운 사람이 부지런히 1시간 하면 <b>어느 직업이든 약 30개</b> (특성이 없으면 약 20개)가 되게 맞췄어요.</p>
           <ul>
-            <li><b>농사 강화석</b> — 수확 1번마다 0.3% (특성으로 0.45%까지)</li>
-            <li><b>광산 강화석</b> — 광물 캘 때 (Black 곡괭이)</li>
-            <li><b>낚시 강화석</b> — 물고기 낚을 때 (낚싯대) · 물고기 기본 값 2만원어치마다 평균 1개</li>
-            <li><b>도축 강화석</b> — 도축장에서 고기 얻을 때 (Black 칼) · 특성이 없어서 <b>기본 1.5배</b></li>
-            <li><b>벌목 강화석</b> — 벌목 숲에서 나무 벨 때 (Black 도끼)</li>
+            <li><b>농사 강화석</b> — 수확 1번마다, <b>팜이 작을수록 높게</b> : 한 변 100 <b>0.2%</b> · 150 <b>0.13%</b> · 200 <b>0.085%</b> · 250 <b>0.065%</b> · 오래 자라는 작물은 그만큼 더 (최대 6.5배) — 칸을 다 채우면 1시간 약 20~30개</li>
+            <li><b>광산 강화석</b> — 광물 블록 1개마다 <b>0.2%</b> (Black 곡괭이)</li>
+            <li><b>낚시 강화석</b> — 물고기 1마리마다 <b>5.5%</b></li>
+            <li><b>벌목 강화석</b> — 나무 1그루마다 <b>1.7%</b> + 새둥지에서 1~2개 (Black 도끼)</li>
+            <li><b>도축 강화석</b> — 동물 1마리마다 <b>5%</b> (Black 칼 · 특성 없음)</li>
           </ul>
           <p class="muted"><b>Black 삽</b>은 아무 강화석이나 섞어서 써도 돼요. 특성 <b>강화석 수집가</b>로 1.5배까지. 강화할 때 돈 + 강화석이 들고, 실패해도 써요. <code>/잠수상점</code> 에서도 살 수 있어요.</p>
           <p><b>강화 효과는 모든 도구가 똑같아요</b> — 1단계마다 <b>7% 확률로 2배</b> (+10 이면 평균 +70%): 곡괭이 광물 · 괭이 작물 · 낚싯대 물고기 · 칼 고기 · 도끼 통나무(벌목 숲). 도끼는 3단계마다 벌목 게이지 구간도 넓어지고, 삽은 캐는 속도(효율)만. <b>곡괭이 채굴 속도</b>는 +0~+4 철 급 → +5 다이아 급 → +9 네더라이트 급, 광산 안 속도는 단계마다 +2%. 칼은 도축 데미지 +1.5 (단계마다).</p>
@@ -431,7 +558,7 @@
       <article class="panel wide">
         <h3>주민 부탁 <small><code>/부탁</code></small></h3>
         <p>마을 주민 5명 — <b>농부 봄이</b>(작물) · <b>어부 바다</b>(물고기) · <b>광부 단단</b>(광물) · <b>요리사 소금</b>(요리) · <b>목수 나무</b>(통나무) — 이 각자 자기 분야 물건만, 내 레벨에 맞게 <b>16 · 32 · 64개</b>씩 부탁해요 (부탁 칸 4개). 모아서 건네주면 <b>물건 값의 1.6배</b> 돈 · 마일리지 2 · 호감도! 끝낸 칸은 90분 뒤 새 부탁, 마음에 안 들면 Shift 클릭으로 거절.</p>
-        <p class="muted">부탁 4번 = 하트 1개 (최대 10개). 하트 2 · 4 · 6 · 8 · 10 마다 선물 (돈 · 뽑기권 · 강화석), 10하트면 칭호 <b>[마을의 단짝]</b>, 5명 모두 10하트면 <b>[블랙하임의 이웃]</b>.</p>
+        <p class="muted">부탁 4번 = 하트 1개 (최대 10개). 하트 2 · 4 · 6 · 8 · 10 마다 선물 (돈 · 뽑기권 · 강화석), 10하트면 칭호 <b>[마을의 단짝]</b>, 5명 모두 10하트면 <b>[온 마을의 친구]</b>.</p>
       </article>
       <div class="cols three">
         <article class="panel">
@@ -487,7 +614,7 @@
       <div class="cols">
         <article class="panel">
           <h3>가상 창고 <code>/창고</code></h3>
-          <p>어디서나 여는 개인 보관함이에요. 창고 하나가 큰 상자 한 개(54칸)! 처음엔 1개, <b>등급이 2 오를 때마다 1개씩</b> 늘어나 <b>최대 10개</b>.</p>
+          <p>어디서나 여는 개인 보관함이에요. 창고 하나가 큰 상자 한 개(54칸)! 처음엔 1개, <b>등급이 2 오를 때마다 1개씩</b> 늘어나 <b>최대 10개</b>. <code>/창고1</code> ~ <code>/창고10</code> (또는 <code>/창고 2</code>) 으로 원하는 창고를 바로 열 수 있어요.</p>
         </article>
         <article class="panel">
           <h3>팜 랭킹 <code>/팜랭킹</code></h3>
@@ -507,7 +634,7 @@
       <div class="cols">
         <article class="panel">
           <h3>잠수터 <code>/잠수터</code></h3>
-          <p>스폰의 잠수터에 있으면 <b>1분마다 잠수 포인트 +1</b> (가만히 있어도 OK). 들어가면 <b>잠수 시작</b>, 나가면 <b>잠수 끝</b> 알림이 뜨고, 잠수 중엔 화면 아래에 다음 포인트까지 남은 시간 · 스코어보드에 <b>● 잠수 중</b>이 보여요. <code>/잠수상점</code> 에서 강화석 · 방지권 · 플라이 티켓 · 돈 주머니로 바꿔요.</p>
+          <p>스폰의 잠수터에 있으면 <b>1분마다 잠수 포인트 +1</b> (가만히 있어도 OK). 들어가면 <b>잠수 시작</b>, 나가면 <b>잠수 끝</b> 알림이 뜨고, 잠수 중엔 화면 아래에 다음 포인트까지 남은 시간 · 스코어보드에 <b>● 잠수 중</b>이 보여요. <code>/잠수상점</code> 에서 강화석(2개 45P · 다섯 종류) · 방지권 · 플라이 티켓 · <b>마일리지</b>(10M 120P · 50M 550P)로 바꿀 수 있어요. 돈 주머니는 없어졌어요.</p>
         </article>
       </div>
       <div class="cols">
@@ -518,6 +645,10 @@
         <article class="panel">
           <h3>주간 랭킹 <code>/주간랭킹</code></h3>
           <p>이번 주에 번 돈(<b>판매왕</b>)과 이번 주 경험치(<b>성장왕</b>)로 겨뤄요. 매주 월요일 0시 정산 — 1~3위 마일리지 200 · 120 · 60, 1위는 한 주 동안 칭호 <b>[이번 주 판매왕]</b> · <b>[이번 주 성장왕]</b>. 늦게 시작한 친구도 매주 1위를 노릴 수 있어요.</p>
+        </article>
+        <article class="panel">
+          <h3>도박장 <code>/도박장</code></h3>
+          <p>슬롯머신 16대가 있는 전용 방. 기계를 우클릭하고 판돈 <b>10만 · 50만 · 100만</b> 중 하나를 고른 뒤 레버로 돌리고 멈춰요. 가운데 줄 그림 3개가 같으면 당첨 — 동 x1.5 · 철 x2 · 금 x3 · 에메랄드 x5 (50만 · 100만) · 다이아 x10 (100만), 2개가 같으면 <b>본전</b>, 나머지는 꽝. <b>꽝 &gt; 본전 &gt; 당첨</b> 순으로 잘 나오고, 판돈이 클수록 당첨이 훨씬 덜 나와요 — 당첨 <b>22% · 15% · 10%</b>, 본전 <b>22% · 17% · 12%</b> (10만 · 50만 · 100만). 길게 하면 잃는 구조예요 (돈이 넘칠 때 재미로). 창을 닫거나 나가도 결과는 정산돼요.</p>
         </article>
         <article class="panel">
           <h3>배경음악 <code>/음악</code></h3>
@@ -543,6 +674,16 @@
             <li>이미 가진 치장이 나오면 <b>치장 교환권</b>으로 받아요 — <code>/유저상점</code> 에서 팔거나 친구에게 선물, 필요 없으면 들고 Shift+우클릭으로 마일리지 (일반 10 · 희귀 20 · 영웅 40 · 전설 100 M) · </li>
             <li><b>도구 스킨 뽑기</b> : <code>/옷장</code> → 도구 스킨 뽑기에서 마일리지 300 M — 벚꽃 · 사탕 · 얼음 <b>30%</b> · 별빛 <b>10%</b> 중 하나의 스킨권이 나와요. 스킨권은 <b>아무 Black 도구에나 1번</b> (들고 우클릭 → 입힐 도구 고르기, 강화 단계 그대로). <code>/치장해제</code> 로 원래 모습으로 되돌릴 수 있지만 스킨권은 돌아오지 않아요</li>
           </ul>
+        </article>
+        <article class="panel wide skin-panel">
+          <h3>도구 스킨 4가지</h3>
+          <p>Black 도구(곡괭이 · 도끼 · 삽 · 괭이 · 칼 · 낚싯대)에 입히는 테마예요. 게임에서는 도구 둘레에 오라가 은은하게 숨 쉬고, 꽃잎 · 사탕 조각 · 눈송이 · 금별이 떠다녀요. 손에 들면 손 주변에도 테마 반짝이가 나와요. 강화 단계 · 능력치는 그대로.</p>
+          <div class="skin-table">
+            <div class="skin-row"><span class="skin-name">벚꽃</span><img src="img/skins/black_pickaxe_s_cherry.png" alt="벚꽃 곡괭이" title="벚꽃 곡괭이" width="56" height="56" loading="lazy"><img src="img/skins/black_axe_s_cherry.png" alt="벚꽃 도끼" title="벚꽃 도끼" width="56" height="56" loading="lazy"><img src="img/skins/black_shovel_s_cherry.png" alt="벚꽃 삽" title="벚꽃 삽" width="56" height="56" loading="lazy"><img src="img/skins/black_hoe_s_cherry.png" alt="벚꽃 괭이" title="벚꽃 괭이" width="56" height="56" loading="lazy"><img src="img/skins/black_sword_s_cherry.png" alt="벚꽃 칼" title="벚꽃 칼" width="56" height="56" loading="lazy"><img src="img/skins/fishing_rod_s_cherry.png" alt="벚꽃 낚싯대" title="벚꽃 낚싯대" width="56" height="56" loading="lazy"></div>
+            <div class="skin-row"><span class="skin-name">사탕</span><img src="img/skins/black_pickaxe_s_candy.png" alt="사탕 곡괭이" title="사탕 곡괭이" width="56" height="56" loading="lazy"><img src="img/skins/black_axe_s_candy.png" alt="사탕 도끼" title="사탕 도끼" width="56" height="56" loading="lazy"><img src="img/skins/black_shovel_s_candy.png" alt="사탕 삽" title="사탕 삽" width="56" height="56" loading="lazy"><img src="img/skins/black_hoe_s_candy.png" alt="사탕 괭이" title="사탕 괭이" width="56" height="56" loading="lazy"><img src="img/skins/black_sword_s_candy.png" alt="사탕 칼" title="사탕 칼" width="56" height="56" loading="lazy"><img src="img/skins/fishing_rod_s_candy.png" alt="사탕 낚싯대" title="사탕 낚싯대" width="56" height="56" loading="lazy"></div>
+            <div class="skin-row"><span class="skin-name">얼음</span><img src="img/skins/black_pickaxe_s_frost.png" alt="얼음 곡괭이" title="얼음 곡괭이" width="56" height="56" loading="lazy"><img src="img/skins/black_axe_s_frost.png" alt="얼음 도끼" title="얼음 도끼" width="56" height="56" loading="lazy"><img src="img/skins/black_shovel_s_frost.png" alt="얼음 삽" title="얼음 삽" width="56" height="56" loading="lazy"><img src="img/skins/black_hoe_s_frost.png" alt="얼음 괭이" title="얼음 괭이" width="56" height="56" loading="lazy"><img src="img/skins/black_sword_s_frost.png" alt="얼음 칼" title="얼음 칼" width="56" height="56" loading="lazy"><img src="img/skins/fishing_rod_s_frost.png" alt="얼음 낚싯대" title="얼음 낚싯대" width="56" height="56" loading="lazy"></div>
+            <div class="skin-row"><span class="skin-name">별빛</span><img src="img/skins/black_pickaxe_s_star.png" alt="별빛 곡괭이" title="별빛 곡괭이" width="56" height="56" loading="lazy"><img src="img/skins/black_axe_s_star.png" alt="별빛 도끼" title="별빛 도끼" width="56" height="56" loading="lazy"><img src="img/skins/black_shovel_s_star.png" alt="별빛 삽" title="별빛 삽" width="56" height="56" loading="lazy"><img src="img/skins/black_hoe_s_star.png" alt="별빛 괭이" title="별빛 괭이" width="56" height="56" loading="lazy"><img src="img/skins/black_sword_s_star.png" alt="별빛 칼" title="별빛 칼" width="56" height="56" loading="lazy"><img src="img/skins/fishing_rod_s_star.png" alt="별빛 낚싯대" title="별빛 낚싯대" width="56" height="56" loading="lazy"></div>
+          </div>
         </article>
         <article class="panel">
           <h3>이렇게 보여요</h3>
@@ -603,11 +744,13 @@
       </div>
       <article class="panel wide gui-panel">
         <h3>그림 메뉴 · GUI</h3>
-        <p><b>Shift + F</b> (또는 <code>/메뉴</code>) 를 누르면 그림 메뉴가 열려요. 상점 · 판매 · 내 팜 · 광산 · 낚시 · 강화 · 거래 · 성장 · 기타 — 큰 그림 버튼을 누르면 바로 이동하거나 열려요. 강화 · 요리 · 상점 · 시세 · 도감 · 유저상점 · 우편도 모두 채팅 대신 GUI 화면이에요. 내 인벤토리 · 제작대 · 상자 · 화로와 평소 화면의 <b>핫바 · 하트 · 배고픔</b>도 상점과 같은 나무 · 크림 톤이에요.</p>
+        <p><b>Shift + F</b> (또는 <code>/메뉴</code>) 를 누르면 그림 메뉴가 열려요. 상점 · 판매 · 내 팜 · 광산 · 낚시 · 강화 · 거래 · 성장 · 기타 — 큰 그림 버튼을 누르면 바로 이동하거나 열려요. <b>이동</b> 메뉴에 도박장 · 잠수터, <b>기타</b> 메뉴에 쓰레기통, <b>정보</b> 메뉴에 판매 통계, <b>랭킹</b> 메뉴에 요리 랭킹 버튼이 있어요. 강화 · 요리 · 상점 · 시세 · 도감 · 유저상점 · 우편도 모두 채팅 대신 GUI 화면이에요. 내 인벤토리 · 제작대 · 상자 · 화로와 평소 화면의 <b>핫바 · 하트 · 배고픔</b>도 상점과 같은 나무 · 크림 톤이에요.</p>
         <div class="gui-row">
           <figure><img src="img/gui/mainmenu.png" alt="메인 메뉴"><figcaption>메인 메뉴 (Shift + F)</figcaption></figure>
           <figure><img src="img/gui/menu_go.png" alt="이동 메뉴"><figcaption>이동 메뉴</figcaption></figure>
           <figure><img src="img/gui/menu_grow.png" alt="성장 메뉴"><figcaption>성장 메뉴</figcaption></figure>
+          <figure><img src="img/gui/menu_etc.png" alt="기타 메뉴"><figcaption>기타 메뉴</figcaption></figure>
+          <figure><img src="img/gui/menu_info.png" alt="정보 메뉴"><figcaption>정보 메뉴</figcaption></figure>
           <figure><img src="img/gui/enh.png" alt="강화"><figcaption>강화 장인</figcaption></figure>
           <figure><img src="img/gui/kitchen.png" alt="요리 테이블"><figcaption>요리 테이블</figcaption></figure>
         </div>
@@ -638,7 +781,7 @@
             <li>채팅 · 귓속말 · 명령어는 운영(관리) 기록으로 남아요</li>
             <li>완전 자동 농장 · 매크로 · 잠수 자동 낚시 금지 (잠수는 <code>/잠수터</code> 에서)</li>
             <li>인챈트 테이블 · 모루 · 대장장이 작업대 사용 불가, 곡괭이 조합 불가 (Black 곡괭이 사용)</li>
-            <li>호퍼·상자 등은 <b>팜(섬) 단위</b> 설치 개수 제한 — 팜 멤버 중 가장 높은 등급을 따라가요 (<code>/팜정보</code>)</li>
+            <li>상자 · 드로퍼 · 신호기 등은 <b>팜(섬) 단위</b> 설치 개수 제한 — 팜 멤버 중 가장 높은 등급을 따라가요 (호퍼는 제한 없음) (<code>/팜정보</code>)</li>
             <li>남의 농장 테러 · 욕설 금지</li>
           </ul>
         </article>

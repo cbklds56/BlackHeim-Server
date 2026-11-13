@@ -128,7 +128,7 @@ function renderQuality() {
 }
 function renderXpChart() {
   const svg = $("#xp-chart"), W = 600, H = 180, P = { l: 52, r: 12, t: 12, b: 26 };
-  const need = lv => Math.floor(100 * Math.pow(lv, 2.3));
+  const need = lv => Math.floor(200 * Math.pow(lv, 2.3));
   const max = need(49);
   const x = lv => P.l + (lv - 1) / 48 * (W - P.l - P.r);
   const y = v => H - P.b - v / max * (H - P.t - P.b);
@@ -253,22 +253,22 @@ function renderFish() {
 function renderArtisan() {
   const A = Object.fromEntries(D.artisan.map(a => [a.id, a]));
   const rows = [
-    ["술통", "과일", "art_wine", "와인", "1개 10~60초", "작물 값 ×2"],
-    ["술통", "채소", "art_juice", "주스", "1개 10~60초", "작물 값 ×1.5"],
-    ["절임병", "과일", "art_jam", "잼", "1개 10~60초", "작물 값 ×1.7"],
-    ["절임병", "채소", "art_pickles", "피클", "1개 10~60초", "작물 값 ×1.6"],
+    ["술통", "과일", "art_wine", "와인", "1개 10~60초", "작물 값 ×1.6"],
+    ["술통", "채소", "art_juice", "주스", "1개 10~60초", "작물 값 ×1.3"],
+    ["절임병", "과일", "art_jam", "잼", "1개 10~60초", "작물 값 ×1.45"],
+    ["절임병", "채소", "art_pickles", "피클", "1개 10~60초", "작물 값 ×1.4"],
     ["술통", "벼", "ing:vinegar", "식초 ×2 (요리 재료)", "1개 10~60초", "—"],
-    ["목장 가공기", "고기", "art_smoked", "훈제 고기", "1개 10~60초", "고기 값 ×1.4"],
+    ["목장 가공기", "고기", "art_smoked", "훈제 고기", "1개 10~60초", "고기 값 ×1.25"],
     ["목장 가공기", "우유", "ing:cheese", "치즈 (요리 재료)", "1개 10~60초", "—"],
     ["목장 가공기", "우유", "ing:butter", "버터 (요리 재료)", "1개 10~60초", "—"],
-    ["목장 가공기", "달걀", "art_mayo", "마요네즈", "1개 10~60초", "달걀 값 ×1.6"],
+    ["목장 가공기", "달걀", "art_mayo", "마요네즈", "1개 10~60초", "달걀 값 ×1.4"],
     ["제분기", "밀", "ing:flour", "밀가루 (요리 재료)", "1개 10~60초", "—"],
     ["제분기", "비트", "ing:sugar", "설탕 ×2 (요리 재료)", "1개 10~60초", "—"],
     ["제분기", "옥수수 · 해바라기", "ing:oil", "식용유 (해바라기 ×3)", "1개 10~60초", "—"],
-    ["수액 채취기", "참나무류 통나무", "wood:art_resin", "송진", "1개 10~60초", "통나무 값 ×1.6"],
-    ["수액 채취기", "자작 · 벚 · 정글 · 아카시아", "wood:art_syrup", "메이플 시럽", "1개 10~60초", "통나무 값 ×1.6"],
-    ["수액 채취기", "가문비 · 맹그로브", "wood:art_tar", "소나무 타르", "1개 10~60초", "통나무 값 ×1.6"],
-    ["수액 채취기", "버섯나무 줄기", "wood:art_nethersap", "네더 수액", "1개 10~60초", "통나무 값 ×1.6"],
+    ["수액 채취기", "참나무류 통나무", "wood:art_resin", "송진", "1개 10~60초", "통나무 값 ×1.4"],
+    ["수액 채취기", "자작 · 벚 · 정글 · 아카시아", "wood:art_syrup", "메이플 시럽", "1개 10~60초", "통나무 값 ×1.4"],
+    ["수액 채취기", "가문비 · 맹그로브", "wood:art_tar", "소나무 타르", "1개 10~60초", "통나무 값 ×1.4"],
+    ["수액 채취기", "버섯나무 줄기", "wood:art_nethersap", "네더 수액", "1개 10~60초", "통나무 값 ×1.4"],
   ];
   const ingImg = id => (D.ingredients.find(i => i.id === id) || {}).img;
   $("#artisan-table").innerHTML = rows.map(([m, inp, id, out, t, v]) => `
@@ -305,8 +305,7 @@ function renderRanks() {
       <div class="price">${r.price ? won(r.price) : "기본"}</div>
       <p>${esc(r.desc)}</p>
       <div class="lims">
-        <span class="badge">호퍼 ${L["호퍼"][r.n - 1]}</span><span class="badge">상자 ${L["상자"][r.n - 1]}</span>
-        <span class="badge">신호기 ${L["신호기"][r.n - 1]}</span><span class="badge">홈 ${r.homes}</span>
+        ${["상자", "신호기", "드로퍼", "디스펜서"].filter(k => L && L[k]).map(k => `<span class="badge">${k} ${L[k][r.n - 1]}</span>`).join("")}<span class="badge">홈 ${r.homes}</span>
       </div>
     </article>`).join("");
 }
@@ -328,9 +327,9 @@ function renderPerks() {
 function renderWood() {
   const t = $("#wood-table");
   if (!t || !D.woods) return;
-  t.innerHTML = D.woods.map(w => `<tr><td>${esc(w.name)}</td><td>Lv.${w.lv}</td><td>${won(w.value)}</td><td>${w.xp}</td><td>${w.regen}초</td><td>${esc(w.tap)} <span class="muted">${won(w.tapv)}</span></td></tr>`).join("");
+  t.innerHTML = D.woods.map(w => `<tr><td>${esc(w.name)}</td><td>Lv.${w.lv}</td><td>${won(w.value)}</td><td>${w.xp}</td><td>${Math.round(w.regen * 0.6)}초</td><td>${esc(w.tap)} <span class="muted">${won(w.tapv)}</span></td></tr>`).join("");
   const I = D.woodImg || {};
-  const ex = [["hardwood", "단단한 나무", "3% · 비싸게 판매 · 왕좌 재료"], ["bird_nest", "새둥지", "1.5% · 우클릭하면 돈 · 씨앗 · 강화석 · 가끔 뽑기권"],
+  const ex = [["hardwood", "단단한 나무", "3% · 비싸게 판매 · 왕좌 재료"], ["bird_nest", "새둥지", "1.5% · 우클릭하면 숲 보물(호박석 · 황금 도토리 · 이끼 낀 나침반 · 무늬 새알 · 은빛 솔방울, 모두 2만원) 70% · 강화석 25% · 뽑기권 5%"],
     ["forest_mushroom", "숲 버섯", "6%"], ["enh_stone_wood", "벌목 강화석", "벤 나무 가치만큼 · 도끼 강화"]];
   const fr = $("#fur-row");
   if (fr && D.furniture) fr.innerHTML = D.furniture.map(f => `<figure class="fur"><img src="${f.img}" alt=""><figcaption>${esc(f.name)}<small class="muted">${esc(f.mat)} ${f.n}개</small></figcaption></figure>`).join("");

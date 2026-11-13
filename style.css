@@ -736,3 +736,19 @@ input[type="search"]:focus { border-color: var(--sprout); box-shadow: none; outl
 .fur { margin: 0; text-align: center; }
 .fur img { width: 96px; height: 96px; image-rendering: pixelated; }
 .fur figcaption { font-size: 13px; display: flex; flex-direction: column; }
+
+/* 업데이트 소식 (tools/site_news.py) */
+.news { background: var(--paper); border: 2px solid var(--line); border-radius: var(--radius); margin: 0 0 12px; box-shadow: var(--shadow); }
+.news summary { cursor: pointer; padding: 14px 18px; font-weight: 700; font-size: 1.05rem; list-style: none; }
+.news summary::-webkit-details-marker { display: none; }
+.news summary::before { content: "▸ "; color: var(--ink-soft); }
+.news[open] summary::before { content: "▾ "; }
+.news-body { padding: 0 18px 14px; }
+.news-h { margin: 12px 0 4px; font-weight: 700; }
+.news .list.sub { margin-top: 2px; font-size: .95em; color: var(--ink-soft); }
+/* 도구 스킨 표 */
+.skin-table { display: grid; gap: 6px; margin-top: 10px; overflow-x: auto; }
+.skin-row { display: flex; align-items: center; gap: 6px; }
+.skin-name { width: 44px; flex: none; font-weight: 700; }
+.skin-row img { width: 56px; height: 56px; image-rendering: pixelated; background: var(--bg-alt); border-radius: 8px; flex: none; }
+.skin-panel { grid-column: 1 / -1; }
