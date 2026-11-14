@@ -196,6 +196,7 @@ const BLOCK_KO = {
   stone: "돌", coal_ore: "석탄 광석", copper_ore: "구리 광석", iron_ore: "철 광석", lapis_ore: "청금석 광석",
   redstone_ore: "레드스톤 광석", nether_quartz_ore: "석영 광석", gold_ore: "금 광석", emerald_ore: "에메랄드 광석",
   diamond_ore: "다이아몬드 광석", ancient_debris: "고대 잔해",
+  nether_gold_ore: "네더 금 광석", gilded_blackstone: "금 박힌 흑암", amethyst_block: "자수정 블록", sculk: "스컬크",
 };
 function blockName(b) {
   if (b.startsWith("deepslate_")) return "심층 " + (BLOCK_KO[b.slice(10)] ?? b);
