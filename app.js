@@ -265,10 +265,7 @@ function renderArtisan() {
     ["제분기", "밀", "ing:flour", "밀가루 (요리 재료)", "1개 10~60초", "—"],
     ["제분기", "비트", "ing:sugar", "설탕 ×2 (요리 재료)", "1개 10~60초", "—"],
     ["제분기", "옥수수 · 해바라기", "ing:oil", "식용유 (해바라기 ×3)", "1개 10~60초", "—"],
-    ["수액 채취기", "참나무류 통나무", "wood:art_resin", "송진", "1개 10~60초", "통나무 값 ×1.4"],
-    ["수액 채취기", "자작 · 벚 · 정글 · 아카시아", "wood:art_syrup", "메이플 시럽", "1개 10~60초", "통나무 값 ×1.4"],
-    ["수액 채취기", "가문비 · 맹그로브", "wood:art_tar", "소나무 타르", "1개 10~60초", "통나무 값 ×1.4"],
-    ["수액 채취기", "버섯나무 줄기", "wood:art_nethersap", "네더 수액", "1개 10~60초", "통나무 값 ×1.4"],
+    ["수액 채취기", "나무 11종 (나무마다)", "wood:art_sap_cherry", "나무마다 다른 수액 11가지", "1개 10~60초", "통나무 값 ×1.35~1.45"],
   ];
   const ingImg = id => (D.ingredients.find(i => i.id === id) || {}).img;
   $("#artisan-table").innerHTML = rows.map(([m, inp, id, out, t, v]) => `
@@ -329,7 +326,7 @@ function renderWood() {
   if (!t || !D.woods) return;
   t.innerHTML = D.woods.map(w => `<tr><td>${esc(w.name)}</td><td>Lv.${w.lv}</td><td>${won(w.value)}</td><td>${w.xp}</td><td>${Math.round(w.regen * 0.6)}초</td><td>${esc(w.tap)} <span class="muted">${won(w.tapv)}</span></td></tr>`).join("");
   const I = D.woodImg || {};
-  const ex = [["hardwood", "단단한 나무", "3% · 비싸게 판매 · 왕좌 재료"], ["bird_nest", "새둥지", "1.5% · 우클릭하면 숲 보물 70% — 은빛 솔방울 1만원(45%) · 황금 도토리 2만원(28%) · 무늬 새알 4만원(16%) · 이끼 낀 나침반 8만원(8%) · 호박석 20만원(3%, 전체 알림) · 강화석 25% · 뽑기권 5%"],
+  const ex = [["hardwood", "단단한 나무", "3% · 비싸게 판매 · 왕좌 재료"], ["bird_nest", "새둥지", "8% · 우클릭하면 숲 보물 88% (14가지, 아래 보물 값표 · 벌목 레벨에 맞게) · 벌목 강화석 10% · 뽑기권 2%"],
     ["forest_mushroom", "숲 버섯", "6%"], ["enh_stone_wood", "벌목 강화석", "벤 나무 가치만큼 · 도끼 강화"]];
   const fr = $("#fur-row");
   if (fr && D.furniture) fr.innerHTML = D.furniture.map(f => `<figure class="fur"><img src="${f.img}" alt=""><figcaption>${esc(f.name)}<small class="muted">${esc(f.mat)} ${f.n}개</small></figcaption></figure>`).join("");
