@@ -202,15 +202,27 @@ function blockName(b) {
   if (b.startsWith("deepslate_")) return "심층 " + (BLOCK_KO[b.slice(10)] ?? b);
   return BLOCK_KO[b] ?? b;
 }
+// 수정 광맥 (2026-11-19) : 블록 → [방, 체력, 덩어리 수, 덩어리 경험치] — mf_82_orenode.sk 와 같은 값
+const NODE = {
+  coal_ore: [1, 85, 3, 3.8], copper_ore: [1, 90, 4, 3.5], iron_ore: [1, 105, 3, 5.2],
+  redstone_ore: [2, 92, 2, 6.9], lapis_ore: [2, 95, 2, 7.3], nether_quartz_ore: [2, 110, 2, 8.7], gold_ore: [2, 130, 2, 10.9],
+  emerald_ore: [3, 155, 2, 15.8], diamond_ore: [3, 175, 2, 18.7],
+  ancient_debris: [4, 285, 3, 20.4], nether_gold_ore: [4, 300, 3, 23.9], gilded_blackstone: [4, 345, 3, 27.0],
+  amethyst_block: [5, 400, 3, 32.9], sculk: [5, 480, 3, 39.9],
+};
+const ROOM = ["", "① 입구", "② 둘째 방", "③ 지하 호수", "④ 화산암", "⑤ 자수정 정동"];
 function renderOres() {
-  const rows = [...D.ores].sort((a, b) => a.deep - b.deep || a.lvl - b.lvl);
+  const rows = D.ores.filter(o => !o.deep && NODE[o.block]).sort((a, b) => a.lvl - b.lvl);
   $("#ore-table tbody").innerHTML = rows.map(o => {
-    const m = minById[o.min];
-    return `<tr class="${o.deep ? "deep" : ""}">
-      <td class="name"><img src="${m.img}" alt="">${blockName(o.block)} ${o.deep ? '<span class="tag-deep">보물</span>' : ""}</td>
+    const m = minById[o.min], n = NODE[o.block];
+    const nn = m.name.replace(" 광석", "").replace(" 가루", "");
+    return `<tr>
+      <td class="name"><img src="${m.img}" alt="">${esc(nn)} 광맥</td>
+      <td>${ROOM[n[0]]}</td>
       <td>광부 Lv.${o.lvl}</td>
-      <td>${esc(m.name)} ${o.amin === o.amax ? o.amin : o.amin + "~" + o.amax}개</td>
-      <td>${o.xp}</td>
+      <td>${n[1]} <span class="muted">(큰 광맥 ${n[1] * 2})</span></td>
+      <td>${n[2]}덩어리 · ${esc(m.name)} ${o.amin === o.amax ? o.amin : o.amin + "~" + o.amax}개씩</td>
+      <td>${n[3]}</td>
       <td>${won(m.value)}</td></tr>`;
   }).join("");
   const total = D.treasures.reduce((s, t) => s + t.w, 0);
